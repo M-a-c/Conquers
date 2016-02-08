@@ -44,9 +44,9 @@ class Debug{
 	// =======
 	// We can use the better technique of deleting the methods
 	// we don't want.
-	public:
-		Debug(Debug const&) = delete;
-		void operator=(Debug const&) = delete;
+	//public:
+	//	Debug(Debug const&) = delete;
+	//	void operator=(Debug const&) = delete;
 
 };
 
