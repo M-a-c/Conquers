@@ -21,20 +21,22 @@ int main()
     menu_music.setLoop(true);                           //Loop music
   }
 
-  int nextScene = -1;
-  while (1)
+  int nextScene = -1;                                   //Next scene init to main menu
+  while (1)                                             //Scene loop
   {
   
-    if (nextScene == 0 || nextScene == -1)
+    if (nextScene == 0 || nextScene == -1)              //main menu selected
     {
       MainMenu mainMenu(window, nextScene);
       continue;
     }
-    else if (nextScene == 3)
+    else if (nextScene == 3)                            //if help scene selected
     {
-      Help help(window, nextScene);
-        continue;
+      Help help(window, nextScene);                     //Help Scene
+        continue;                                       
     }
+
+    //Other numbers to come soon login and create causes exit
     else
       break;
   }
