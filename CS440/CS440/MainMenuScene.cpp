@@ -175,38 +175,39 @@ void MainMenu::moveUp()
 //Function thta will load images
 void MainMenu::getImage(float width, float height)
 {
-  //Getting the images//sf::IntRect(45, 135, 219, 37)images/menu_buttons.png
-  if (!texture_buttons[0].loadFromFile("images/test.png"))
-    imageFail_important("images/menu_image3.jpg");
-  if (!texture_buttons[1].loadFromFile("images/menu_buttons.png", sf::IntRect(45, 210, 219, 40)))
-    imageFail_important("images/menu_image3.jpg");
-  if (!texture_buttons[3].loadFromFile("images/menu_buttons.png", sf::IntRect(45, 370, 219, 40)))
-    imageFail_important("images/menu_image3.jpg");
-  if (!texture_buttons[2].loadFromFile("images/menu_buttons.png", sf::IntRect(45, 290, 219, 40)))
-    imageFail_important("images/menu_image3.jpg");
-  if (!texture_title.loadFromFile("images/title_3.png"))
-    imageFail_important("images/title_3.png");
+  //Getting the images
+  if (!texture_buttons[0].loadFromFile("images/b_login.png", sf::IntRect(0, 0, 180, 60)))
+    imageFail_important("images/b_login.png");
+  if (!texture_buttons[1].loadFromFile("images/b_createAcc.png", sf::IntRect(0, 0, 456, 60)))
+    imageFail_important("images/b_createAcc.jpg");
+  if (!texture_buttons[2].loadFromFile("images/b_help.png", sf::IntRect(0, 0, 180, 60)))
+    imageFail_important("images/b_help.png");
+  if (!texture_buttons[3].loadFromFile("images/b_exit.png", sf::IntRect(0, 0, 180, 60)))
+    imageFail_important("images/b_exit.png");
+
+  if (!texture_title.loadFromFile("images/title_1.png"))
+    imageFail_important("images/title_1.png");
 
 
   //Loading into sprites and setting position
   //Login
   button[0].setTexture(texture_buttons[0]);
-  button[0].setPosition(sf::Vector2f( (width / 2)-(215/2), (height / 2)));
+  button[0].setPosition(sf::Vector2f( (width / 2)-(180/2), (height / 2)));
   button[0].setScale(1.15f, 1.15f);
 
   //Create Account Button
   button[1].setTexture(texture_buttons[1]);
-  button[1].setPosition(sf::Vector2f((width / 2) - (215 / 2), (height / 2) + 50));
+  button[1].setPosition(sf::Vector2f((width / 2) - (456 / 2), (height / 2) + 70));
 
   //Help Button
   button[2].setTexture(texture_buttons[2]);
-  button[2].setPosition(sf::Vector2f((width / 2) - (215 / 2), (height / 2) + 100));
+  button[2].setPosition(sf::Vector2f((width / 2) - (180 / 2), (height / 2) + 140));
 
   //Exit button
   button[3].setTexture(texture_buttons[3]);
-  button[3].setPosition(sf::Vector2f((width / 2) - (215 / 2), (height / 2) + 150));
+  button[3].setPosition(sf::Vector2f((width / 2) - (180 / 2), (height / 2) + 210));
 
   //Loading title
   sprite_title.setTexture(texture_title);
-  sprite_title.setPosition(sf::Vector2f((width / 2) - (sprite_title.getGlobalBounds().width / 2)+50, height / 5) );
+  sprite_title.setPosition(sf::Vector2f((width / 2) - (sprite_title.getGlobalBounds().width / 2), height / 5) );
 }

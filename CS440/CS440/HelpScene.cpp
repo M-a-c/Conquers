@@ -132,19 +132,19 @@ void Help::getImage(float width, float height)
   }
 
   //Getting the images
-  if (!texture[0].loadFromFile("images/buttons2.png", sf::IntRect(45, 287, 219, 40)))
-    imageFail_important("images/buttons2.jpg");
-  if (!texture[1].loadFromFile("images/buttons2.png", sf::IntRect(47, 210, 219, 40)))
-    imageFail_important("images/buttons2.jpg");
+  if (!texture[0].loadFromFile("images/b_back.png", sf::IntRect(0, 0, 180, 60)))
+    imageFail_important("images/b_back.jpg");
+  if (!texture[1].loadFromFile("images/b_next.png", sf::IntRect(0, 0, 180, 60)))
+    imageFail_important("images/b_next.jpg");
 
   //Create Back Button
   button[0].setTexture(texture[0]);
-  button[0].setPosition(sf::Vector2f((width / 4) - (215 / 2), height-100) );
+  button[0].setPosition(sf::Vector2f((width / 4) - (180 / 2), (height / 8) * 6));
   button[0].setScale(1.15f, 1.15f);
 
   //Create Next Button
   button[1].setTexture(texture[1]);
-  button[1].setPosition(sf::Vector2f( ( (width / 4)*3 ) - (215 / 2), height - 100));
+  button[1].setPosition(sf::Vector2f(((width / 4) * 3) - (180 / 2), (height / 8) * 6));
 
 
 }

@@ -142,19 +142,20 @@ void Create::getImage(float width, float height)
 
 
   //Getting the images
-  if (!texture[0].loadFromFile("images/buttons2.png", sf::IntRect(45, 135, 219, 37)))
-    imageFail_important("images/menu_image3.jpg");
-  if (!texture[1].loadFromFile("images/menu_buttons.png", sf::IntRect(45, 210, 219, 40)))
-    imageFail_important("images/menu_image3.jpg");
+  if (!texture[0].loadFromFile("images/b_ok.png", sf::IntRect(0, 0, 180, 60)))
+    imageFail_important("images/b_ok.jpg");
+  if (!texture[1].loadFromFile("images/b_back.png", sf::IntRect(0, 0, 180, 60)))
+    imageFail_important("images/b_back.jpg");
   
 
-  //Create Login Button
-  button[0].setTexture(texture[0]);
-  button[0].setPosition(sf::Vector2f((width / 4) - (215 / 2), height - 100));
-  button[0].setScale(1.15f, 1.15f);
   //Create Create Button
+  button[0].setTexture(texture[0]);
+  button[0].setPosition(sf::Vector2f((width / 4) - (180 / 2), (height /8)*5 ));
+  button[0].setScale(1.15f, 1.15f);
+
+  //Create Back Button
   button[1].setTexture(texture[1]);
-  button[1].setPosition(sf::Vector2f(((width / 4) * 2) - (215 / 2), height - 100));
+  button[1].setPosition(sf::Vector2f(((width / 4) * 3) - (180 / 2), (height /8)*5 ));
 
 }
 

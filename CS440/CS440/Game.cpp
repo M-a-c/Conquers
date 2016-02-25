@@ -5,7 +5,6 @@
 #include "HelpScene.hpp"
 #include "LoginScene.hpp"
 #include "CreateScene.hpp"
-#include "Datamgr.h"
 
 int main()
 {
@@ -53,7 +52,7 @@ int main()
   }
 
   menu_music.stop();
-  //exit(0);
+  exit(0);
   return 0;
 }
 
