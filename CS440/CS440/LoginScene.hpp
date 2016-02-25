@@ -8,13 +8,13 @@
 
 using std::string;
 
-class Help:public Scene
+class Login :public Scene
 {
 
 public:
   //Constructor and deconstructor
-  Help(sf::RenderWindow &window, int &re_val);
-  ~Help();
+  Login(sf::RenderWindow &window, int &re_val);
+  ~Login();
 private:
   //Screen Updaters
   void draw(sf::RenderWindow &window);
@@ -29,13 +29,13 @@ private:
   //Selected item Index
   int selectedItem;
 
-  //Text
-  string text;
-  sf::Font font;
-  sf::Text message;
-
   //Button
-  sf::Texture texture[2];
-  Button button[2];
+  sf::Texture texture[3];
+  Button button[3];
+
+  //Prompt
+  sf::Font font;
+  sf::Text userName_text;
+  sf::Text password_text;
 
 };

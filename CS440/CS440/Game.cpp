@@ -3,6 +3,8 @@
 #include <iostream>
 #include "MainMenuScene.hpp"
 #include "HelpScene.hpp"
+#include "LoginScene.hpp"
+#include "CreateScene.hpp"
 
 int main()
 {
@@ -21,22 +23,30 @@ int main()
     menu_music.setLoop(true);                           //Loop music
   }
 
-  int nextScene = -1;                                   //Next scene init to main menu
-  while (1)                                             //Scene loop
+  int nextScene = -1;
+  while (1)
   {
   
-    if (nextScene == 0 || nextScene == -1)              //main menu selected
+    if (nextScene == 0 || nextScene == -1)
     {
       MainMenu mainMenu(window, nextScene);
       continue;
     }
-    else if (nextScene == 3)                            //if help scene selected
+    else if (nextScene == 1)
     {
-      Help help(window, nextScene);                     //Help Scene
-        continue;                                       
+      Login login(window, nextScene);
+      continue;
     }
-
-    //Other numbers to come soon login and create causes exit
+    else if (nextScene == 2)
+    {
+      Create create(window, nextScene);
+      continue;
+    }
+    else if (nextScene == 3)
+    {
+      Help help(window, nextScene);
+      continue;
+    }
     else
       break;
   }

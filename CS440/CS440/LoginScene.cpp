@@ -1,27 +1,24 @@
-#include "HelpScene.hpp"
+#include "LoginScene.hpp"
 
 //Helping constuctor
-Help::Help(sf::RenderWindow &window, int &re_val)
+Login::Login(sf::RenderWindow &window, int &re_val)
 {
-  name = "Help";      //set name
-  text = "Welcome to the help screen, There will be pleanty of magic here soon.\n BTW hit Back  to go back";    //Message
+  name = "Login";      //set name
   setBackground("images/menu_image3.jpg");    //Set background
   getImage((float)window.getSize().x,         //Load buttons
     (float)window.getSize().y);
   selectedItem = 0;                           //Selected item index
   re_val = update(window);                    //update and next scene
   return;                                     //return
-
 }
 
-Help::~Help()
+Login::~Login()
 {
   std::cout << "Deconstructor for Help" << std::endl;
 }
 
-
 //Update loop
-int Help::update(sf::RenderWindow &window)
+int Login::update(sf::RenderWindow &window)
 {
   //While the window open
   while (window.isOpen())
@@ -33,29 +30,35 @@ int Help::update(sf::RenderWindow &window)
     {
       switch (event.type)
       {
-      //Event for hitting the x
+        //Event for hitting the x
       case sf::Event::Closed:
         window.close();
         exit(0);
         break;
 
-      //Mouse over button
+        //Mouse over button
       case sf::Event::MouseMoved:
         button[0].checkHover(event.mouseMove.x, event.mouseMove.y);
         button[1].checkHover(event.mouseMove.x, event.mouseMove.y);
+        button[2].checkHover(event.mouseMove.x, event.mouseMove.y);
         break;
-      
-      //Click button
+
+        //Click button
       case::sf::Event::MouseButtonReleased:
         if (button[0].mouseClicked() == true)
         {
-          std::cout << "Back\n";
-          return 0;
+          std::cout << "Play\n";
+          //TODO//
         }
         else if (button[1].mouseClicked() == true)
         {
-          std::cout << "Next\n";
-          //TODO//
+          std::cout << "Create\n";
+          return 2;
+        }
+        else if (button[2].mouseClicked() == true)
+        {
+          std::cout << "Back\n";
+          return 0;
         }
         break;
 
@@ -63,59 +66,64 @@ int Help::update(sf::RenderWindow &window)
       case sf::Event::KeyReleased:
         switch (event.key.code)
         {
-        //Esc
+          //Esc
         case sf::Keyboard::Escape:
           return 0;
           break;
-        //Up arrow
+          //Up arrow
         case sf::Keyboard::Right:
           moveRight();
           break;
 
-        //Down arrow
+          //Down arrow
         case sf::Keyboard::Left:
           moveLeft();
           break;
 
-        //W button
+          //W button
         case sf::Keyboard::D:
           moveRight();
           break;
 
-        //S button
+          //S button
         case sf::Keyboard::A:
           moveLeft();
           break;
 
-        //Return button
+          //Return button
         case sf::Keyboard::Return:
           if (returnPress() == 0)
           {
-            std::cout << "Back\n";
-            return 0;
+            std::cout << "Play\n";
+            //TODO//
           }
           else if (returnPress() == 1)
           {
-            std::cout << "Next\n";
+            std::cout << "Create\n";
+            return 2;
+          }
+          else if (returnPress() == 2)
+          {
+            std::cout << "Back\n";
+            return 0;
           }
         }
         break;
 
       }
     }
-     
+
     //Updating screen
     window.clear();
     draw(window);
     window.display();
-    
+
   }
   return 0;
 }
 
-
 //Loading images
-void Help::getImage(float width, float height)
+void Login::getImage(float width, float height)
 {
 
   //Loading Font
@@ -125,46 +133,60 @@ void Help::getImage(float width, float height)
   }
   else
   {
-    message.setFont(font);
-    message.setColor(sf::Color::White);
-    message.setString(text);
-    message.setPosition(0, 50);
+    //username lable
+    userName_text.setFont(font);
+    userName_text.setColor(sf::Color::White);
+    userName_text.setString("USERNAME:");
+    userName_text.setPosition(50, 50);
+
+    //password label
+    password_text.setFont(font);
+    password_text.setColor(sf::Color::White);
+    password_text.setString("PASSWORD:");
+    password_text.setPosition(50, 100);
   }
 
+
   //Getting the images
-  if (!texture[0].loadFromFile("images/buttons2.png", sf::IntRect(45, 287, 219, 40)))
-    imageFail_important("images/buttons2.jpg");
-  if (!texture[1].loadFromFile("images/buttons2.png", sf::IntRect(47, 210, 219, 40)))
-    imageFail_important("images/buttons2.jpg");
+  if (!texture[0].loadFromFile("images/buttons2.png", sf::IntRect(45, 135, 219, 37)))
+    imageFail_important("images/menu_image3.jpg");
+  if (!texture[1].loadFromFile("images/menu_buttons.png", sf::IntRect(45, 210, 219, 40)))
+    imageFail_important("images/menu_image3.jpg");
+  if (!texture[2].loadFromFile("images/buttons2.png", sf::IntRect(45, 287, 219, 40)))
+    imageFail_important("images/menu_image3.jpg");
+
+  //Create Login Button
+  button[0].setTexture(texture[0]);
+  button[0].setPosition(sf::Vector2f((width / 4) - (215 / 2), height - 100));
+  button[0].setScale(1.15f, 1.15f);
+  //Create Create Button
+  button[1].setTexture(texture[1]);
+  button[1].setPosition(sf::Vector2f(((width / 4) * 2) - (215 / 2), height - 100));
 
   //Create Back Button
-  button[0].setTexture(texture[0]);
-  button[0].setPosition(sf::Vector2f((width / 4) - (215 / 2), height-100) );
-  button[0].setScale(1.15f, 1.15f);
-
-  //Create Next Button
-  button[1].setTexture(texture[1]);
-  button[1].setPosition(sf::Vector2f( ( (width / 4)*3 ) - (215 / 2), height - 100));
+  button[2].setTexture(texture[2]);
+  button[2].setPosition(sf::Vector2f(((width / 4) * 3) - (215 / 2), height - 100));
 
 
 }
 
 
 //Drawing
-void Help::draw(sf::RenderWindow &window)
+void Login::draw(sf::RenderWindow &window)
 {
   window.draw(bk);              //Draw bk
-  for (int i = 0; i < 2; i++)   //Drawing button
+  for (int i = 0; i < 3; i++)   //Drawing button
     window.draw(button[i]);
-  window.draw(message);         //Draw message
+  window.draw(password_text);   //Draw password prompt
+  window.draw(userName_text);   //Draw username prompt
 
 }
 
 
 //Handler for Right
-void Help::moveRight()
+void Login::moveRight()
 {
-  if (selectedItem + 1 < 2)
+  if (selectedItem + 1 < 3)
   {
     button[selectedItem].animateDown();       //No animation
     selectedItem++;                           //next button
@@ -175,7 +197,7 @@ void Help::moveRight()
 
 
 //Handler for Left
-void Help::moveLeft()
+void Login::moveLeft()
 {
   if (selectedItem - 1 >= 0)
   {

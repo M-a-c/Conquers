@@ -2,6 +2,8 @@
 #include "SFML\Graphics.hpp"
 #include "Failure.hpp"
 #include "Scenes.cpp"
+#include "Button.hpp"
+
 
 class MainMenu : public Scene
 {
@@ -24,7 +26,7 @@ private:
 
   //Images
   sf::Texture texture_buttons[4];
-  sf::Sprite sprite_buttons[4];
   sf::Texture texture_title;
   sf::Sprite sprite_title;
+  Button button[4];
 };

@@ -37,6 +37,40 @@ int MainMenu::update(sf::RenderWindow &window)
           exit(0); 
           break;
         
+        //Mouse over button
+        case sf::Event::MouseMoved:
+          button[0].checkHover(event.mouseMove.x, event.mouseMove.y);
+          button[1].checkHover(event.mouseMove.x, event.mouseMove.y);
+          button[2].checkHover(event.mouseMove.x, event.mouseMove.y);
+          button[3].checkHover(event.mouseMove.x, event.mouseMove.y);
+          break;
+
+        //Click button
+        case::sf::Event::MouseButtonReleased:
+          if (button[0].mouseClicked() == true)
+          {
+            std::cout << "Login\n";
+            return 1;
+          }
+          else if (button[1].mouseClicked() == true)
+          {
+            std::cout << "New\n";
+            return 2;
+          }
+          else if (button[2].mouseClicked() == true)
+          {
+            std::cout << "Help\n";
+            return 3;
+          }
+          else if (button[3].mouseClicked() == true)
+          {
+            std::cout << "Exit\n";
+            window.close();
+            exit(0);
+          }
+          break;
+
+
         //Button Event
         case sf::Event::KeyReleased:
           switch (event.key.code)
@@ -92,6 +126,7 @@ int MainMenu::update(sf::RenderWindow &window)
 
     }
 
+    //Clearing and drawing
     window.clear();
     draw(window);
     window.display();
@@ -105,7 +140,7 @@ void MainMenu::draw(sf::RenderWindow &window)
   window.draw(bk);
   window.draw(sprite_title);
   for (int i = 0; i < 4; i++)
-    window.draw(sprite_buttons[i]);
+    window.draw(button[i]);
 
 }
 
@@ -114,10 +149,12 @@ void MainMenu::moveDown()
 {
   if (selectedItem + 1 < 4)
   {
-    //Change scaling
-    sprite_buttons[selectedItem].setScale(1, 1);
+   
+    button[selectedItem].animateDown();
     selectedItem++;
-    sprite_buttons[selectedItem].setScale(1.15f, 1.15f);
+    button[selectedItem].animateUp();
+    button[selectedItem].sound_hover.play();
+
   }
 
 }
@@ -127,10 +164,11 @@ void MainMenu::moveUp()
 {
   if (selectedItem - 1 >= 0)
   {
-    //Change scaling
-    sprite_buttons[selectedItem].setScale(1, 1);
+
+    button[selectedItem].animateDown();
     selectedItem--;
-    sprite_buttons[selectedItem].setScale(1.15f, 1.15f);
+    button[selectedItem].animateUp();
+    button[selectedItem].sound_hover.play();
   }
 }
 
@@ -138,13 +176,13 @@ void MainMenu::moveUp()
 void MainMenu::getImage(float width, float height)
 {
   //Getting the images
-  if (!texture_buttons[0].loadFromFile("images/menu_buttons.png", sf::IntRect(45, 135, 215, 37)))
+  if (!texture_buttons[0].loadFromFile("images/menu_buttons.png", sf::IntRect(45, 135, 219, 37)))
     imageFail_important("images/menu_image3.jpg");
-  if (!texture_buttons[1].loadFromFile("images/menu_buttons.png", sf::IntRect(45, 210, 215, 40)))
+  if (!texture_buttons[1].loadFromFile("images/menu_buttons.png", sf::IntRect(45, 210, 219, 40)))
     imageFail_important("images/menu_image3.jpg");
-  if (!texture_buttons[3].loadFromFile("images/menu_buttons.png", sf::IntRect(45, 370, 215, 40)))
+  if (!texture_buttons[3].loadFromFile("images/menu_buttons.png", sf::IntRect(45, 370, 219, 40)))
     imageFail_important("images/menu_image3.jpg");
-  if (!texture_buttons[2].loadFromFile("images/menu_buttons.png", sf::IntRect(45, 290, 215, 40)))
+  if (!texture_buttons[2].loadFromFile("images/menu_buttons.png", sf::IntRect(45, 290, 219, 40)))
     imageFail_important("images/menu_image3.jpg");
   if (!texture_title.loadFromFile("images/title_3.png"))
     imageFail_important("images/title_3.png");
@@ -152,23 +190,23 @@ void MainMenu::getImage(float width, float height)
 
   //Loading into sprites and setting position
   //Login
-  sprite_buttons[0].setTexture(texture_buttons[0]);
-  sprite_buttons[0].setPosition(sf::Vector2f(0, (height / 2)));
-  sprite_buttons[0].setScale(1.15f, 1.15f);
+  button[0].setTexture(texture_buttons[0]);
+  button[0].setPosition(sf::Vector2f( (width / 2)-(215/2), (height / 2)));
+  button[0].setScale(1.15f, 1.15f);
 
   //Create Account Button
-  sprite_buttons[1].setTexture(texture_buttons[1]);
-  sprite_buttons[1].setPosition(sf::Vector2f(0, (height / 2) + 50));
+  button[1].setTexture(texture_buttons[1]);
+  button[1].setPosition(sf::Vector2f((width / 2) - (215 / 2), (height / 2) + 50));
 
   //Help Button
-  sprite_buttons[2].setTexture(texture_buttons[2]);
-  sprite_buttons[2].setPosition(sf::Vector2f(0, (height / 2) + 100));
+  button[2].setTexture(texture_buttons[2]);
+  button[2].setPosition(sf::Vector2f((width / 2) - (215 / 2), (height / 2) + 100));
 
   //Exit button
-  sprite_buttons[3].setTexture(texture_buttons[3]);
-  sprite_buttons[3].setPosition(sf::Vector2f(0, (height / 2) + 150));
+  button[3].setTexture(texture_buttons[3]);
+  button[3].setPosition(sf::Vector2f((width / 2) - (215 / 2), (height / 2) + 150));
 
   //Loading title
   sprite_title.setTexture(texture_title);
-  sprite_title.setPosition(sf::Vector2f(0, height / 5));
+  sprite_title.setPosition(sf::Vector2f((width / 2) - (sprite_title.getGlobalBounds().width / 2)+50, height / 5) );
 }
