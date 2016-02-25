@@ -5,6 +5,7 @@
 #include "HelpScene.hpp"
 #include "LoginScene.hpp"
 #include "CreateScene.hpp"
+#include "Datamgr.h"
 
 int main()
 {
