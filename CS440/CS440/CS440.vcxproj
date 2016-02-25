@@ -79,20 +79,26 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Button.cpp" />
+    <ClCompile Include="CreateScene.cpp" />
     <ClCompile Include="Datamgr.cpp" />
     <ClCompile Include="Debug.cpp" />
     <ClCompile Include="Failure.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="HelpScene.cpp" />
+    <ClCompile Include="LoginScene.cpp" />
     <ClCompile Include="MainMenuScene.cpp" />
     <ClCompile Include="Scenes.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Button.hpp" />
+    <ClInclude Include="CreateScene.hpp" />
     <ClInclude Include="Datamgr.h" />
     <ClInclude Include="Debug.h" />
     <ClInclude Include="Defines.h" />
     <ClInclude Include="Failure.hpp" />
     <ClInclude Include="HelpScene.hpp" />
+    <ClInclude Include="LoginScene.hpp" />
     <ClInclude Include="MainMenuScene.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

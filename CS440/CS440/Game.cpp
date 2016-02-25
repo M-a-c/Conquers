@@ -53,7 +53,7 @@ int main()
   }
 
   menu_music.stop();
-  exit(0);
+  //exit(0);
   return 0;
 }
 

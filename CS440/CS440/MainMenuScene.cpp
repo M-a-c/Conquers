@@ -175,8 +175,8 @@ void MainMenu::moveUp()
 //Function thta will load images
 void MainMenu::getImage(float width, float height)
 {
-  //Getting the images
-  if (!texture_buttons[0].loadFromFile("images/menu_buttons.png", sf::IntRect(45, 135, 219, 37)))
+  //Getting the images//sf::IntRect(45, 135, 219, 37)images/menu_buttons.png
+  if (!texture_buttons[0].loadFromFile("images/test.png"))
     imageFail_important("images/menu_image3.jpg");
   if (!texture_buttons[1].loadFromFile("images/menu_buttons.png", sf::IntRect(45, 210, 219, 40)))
     imageFail_important("images/menu_image3.jpg");

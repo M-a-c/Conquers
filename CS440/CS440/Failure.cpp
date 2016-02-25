@@ -16,7 +16,7 @@ void Failure::soundFail(string name)
 void Failure::imageFail_important(string name)
 {
   std::cout << name << "image  could not be loaded" << std::endl;
-  exit(0);
+  //exit(0);
 
 }
 
