@@ -27,10 +27,10 @@ class Debug{
 		}
 		void print(int a,std::string b);
 		void debug(int a,std::string b);
+		Debug() {};                   // Constructor? (the {} brackets) are needed here.
 
 	private:
 		int printsMade = 0;
-		Debug() {};                   // Constructor? (the {} brackets) are needed here.
 
 		// C++ 03
 		// ========
