@@ -1,18 +1,112 @@
 #include "Datamgr.h"
-/*
-create login function, return 1 if created succesfully created, else 0 , also print out conflict or name already exists
-check login function boolean return 1 if valid, 
-delete login function, take in login and pass, find it in file 1, else 0 if not found , prints to screen
-all take in string name and string password as inputs 
-when users are created, blank_name.sav delete_name.sav, (.sav is a file descriptor) 
+/****Public functions****/
 
-csv for username and password, (accounts list, used to check if valid acct)
-additional files of only valid user name and saved data(saved data for each account, their own txt file per acct)
+bool DataManager::login_create(struct Player * player)
+{
+	std::string name = player->name;
+	std::string pass = player->password;
 
-this.debug, first argument you send it integer saying what level of debug it is (lower number, higher priority, 0 is critical*/
+	if (create_file(name, "sav") && write_data((name + ".sav"), (name + "," + pass))){
+		return true;
+	}
+	else{
+		return false;
+	}
 
-/*create a file with a custom label and extension within the project folder*/
+}
+bool DataManager::login_check(struct Player * player)
+{
+	std::string username = player->name;
+	if (file_exists((player->name + ".sav")) == true){
+		return true;
+	}
+	else{
+		return false;
+	}
+}
 
+bool DataManager::login_delete(struct Player * player){
+
+	std::string username = player->name;
+	if (delete_file((username + ".sav")) == true){
+		return true;
+	}
+	else{
+		return false;
+	}
+
+}
+
+std::string DataManager::login_read(struct Player * player)
+{
+	std::string username = player->name;
+	std::string str_read;
+	str_read = read_data((username + ".sav"));
+	return str_read;
+}
+
+bool DataManager::save_game(struct Game * gamesave, std::string gameIdentifier)
+{
+	/*dummy place holder until a saved game identification scheme is created*/
+
+	if (create_file(gameIdentifier, "sav") == true)
+	{
+
+		/*user A name, password, team color*/
+		write_data(gameIdentifier + ".sav", gamesave->userA.name);
+		write_data(gameIdentifier + ".sav", gamesave->userA.password);
+		write_data(gameIdentifier + ".sav", std::to_string(gamesave->userA.color));
+
+		/*user A resources*/
+		write_data(gameIdentifier + ".sav", std::to_string(gamesave->userA.resources.gold));
+		write_data(gameIdentifier + ".sav", std::to_string(gamesave->userA.resources.land));
+		write_data(gameIdentifier + ".sav", std::to_string(gamesave->userA.resources.soldiers));
+
+		/*user B name, password, team color*/
+		write_data(gameIdentifier + ".sav", gamesave->userB.name);
+		write_data(gameIdentifier + ".sav", gamesave->userB.password);
+		write_data(gameIdentifier + ".sav", std::to_string(gamesave->userB.color));
+
+		/*user B resources*/
+		write_data(gameIdentifier + ".sav", std::to_string(gamesave->userB.resources.gold));
+		write_data(gameIdentifier + ".sav", std::to_string(gamesave->userB.resources.land));
+		write_data(gameIdentifier + ".sav", std::to_string(gamesave->userB.resources.soldiers));
+
+		/*Game parameters*/
+		write_data(gameIdentifier + ".sav", std::to_string(gamesave->gameTime));
+		write_data(gameIdentifier + ".sav", std::to_string(gamesave->roundTime));
+		write_data(gameIdentifier + ".sav", std::to_string(gamesave->era));
+
+		return true;
+	}
+	else{ return false; }
+}
+
+bool DataManager::load_game(std::string gameIdentifier)
+{
+	if (true )
+	{
+		return true;
+	}
+	else{
+		return false;
+	}
+
+}
+
+bool DataManager::check_game(std::string gameIdentifier)
+{
+	if ( file_exists((gameIdentifier + ".sav")) == true ) 
+	{
+		return true;
+	}
+	else{
+		return false;
+	}
+
+}
+
+/****Protected functions****/
 bool DataManager::create_file(std::string label, std::string ext)
 {
 	std::ofstream new_file((label + "." + ext).c_str());
@@ -127,34 +221,6 @@ bool DataManager::delete_file(std::string filename)
 	
 	return true;
 }
-
-bool DataManager::login_create(std::string name, std::string pass)
-{
-	if ( create_file(name, "sav") && write_data((name + ".sav") , (name + "," + pass)) ){
-		return true;
-	}
-	else{ 
-		return false; 
-	}
-
-}
-bool DataManager::login_check(std::string username)
-{ 
-	if ( file_exists((username + ".sav")) == true ){
-		return true;
-	}
-	else{ 
-		return false; 
-	}
-}
-
-bool DataManager::login_delete(std::string username){ 
 	
-	if (delete_file((username + ".sav")) == true){
-		return true;
-	}
-	else{
-		return false;
-	}
 
-}
+
