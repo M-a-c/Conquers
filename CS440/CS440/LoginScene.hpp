@@ -20,6 +20,7 @@ private:
   void draw(sf::RenderWindow &window);
   int update(sf::RenderWindow &window);
   void getImage(float width, float height);
+  char isTypableText(sf::Keyboard::Key);
 
   //Button Handlers
   void moveRight();
@@ -37,5 +38,12 @@ private:
   sf::Font font;
   sf::Text userName_text;
   sf::Text password_text;
+
+  bool EnteringPassword;
+
+  std::string usernameString;
+  std::string passwordString;
+  std::string passwordStringOBF;
+
 
 };

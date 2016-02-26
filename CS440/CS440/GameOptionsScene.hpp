@@ -17,6 +17,7 @@ private:
   void draw(sf::RenderWindow &window);
   int update(sf::RenderWindow &window);
   void getImage(float width, float height);
+  char isTypableText(sf::Keyboard::Key);
 
   void buttonSelectionCheck();
 

@@ -45,6 +45,9 @@
     <ClCompile Include="Button.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="GameOptionsScene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Debug.h">
@@ -72,6 +75,9 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="Button.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameOptionsScene.hpp">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>

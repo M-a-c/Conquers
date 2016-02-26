@@ -6,6 +6,7 @@
 #include "LoginScene.hpp"
 #include "CreateScene.hpp"
 #include "Datamgr.h"
+#include "GameOptionsScene.hpp"
 
 int main()
 {
@@ -48,6 +49,11 @@ int main()
       Help help(window, nextScene);
       continue;
     }
+	else if (nextScene == 4)
+	{
+		GameOptions gameOptions(window, nextScene);
+		continue;
+	}
     else
       break;
   }

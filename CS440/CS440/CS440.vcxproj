@@ -85,6 +85,7 @@
     <ClCompile Include="Debug.cpp" />
     <ClCompile Include="Failure.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="GameOptionsScene.cpp" />
     <ClCompile Include="HelpScene.cpp" />
     <ClCompile Include="LoginScene.cpp" />
     <ClCompile Include="MainMenuScene.cpp" />
@@ -97,6 +98,7 @@
     <ClInclude Include="Debug.h" />
     <ClInclude Include="Defines.h" />
     <ClInclude Include="Failure.hpp" />
+    <ClInclude Include="GameOptionsScene.hpp" />
     <ClInclude Include="HelpScene.hpp" />
     <ClInclude Include="LoginScene.hpp" />
     <ClInclude Include="MainMenuScene.hpp" />

@@ -1,4 +1,5 @@
 #include "LoginScene.hpp"
+#include "Datamgr.h"
 
 //Helping constuctor
 Login::Login(sf::RenderWindow &window, int &re_val)
@@ -7,6 +8,7 @@ Login::Login(sf::RenderWindow &window, int &re_val)
   setBackground("images/menu_image3.jpg");    //Set background
   getImage((float)window.getSize().x,         //Load buttons
     (float)window.getSize().y);
+  EnteringPassword = false;				
   selectedItem = 0;                           //Selected item index
   re_val = update(window);                    //update and next scene
   return;                                     //return
@@ -44,12 +46,31 @@ int Login::update(sf::RenderWindow &window)
         break;
 
         //Click button
-      case::sf::Event::MouseButtonReleased:
-        if (button[0].mouseClicked() == true)
-        {
-          std::cout << "Play\n";
-          //TODO//
-        }
+	  case sf::Event::MouseButtonReleased:
+		  if (button[0].mouseClicked() == true)
+		  {
+			  if (usernameString.length() > 0 && passwordString.length() > 0){
+				  if (returnPress() == 0)
+				  {
+
+					  Player p;
+					  p.name = usernameString;
+					  p.password = passwordString;
+					  DataManager d;
+					  std::cout << (d.login_check(&p) == true ? "LoggedIn\n" : "Error\n");
+					  if (d.login_create(&p)){ return 4; }
+					  //std::cout << "Create\n";
+					  //TODO//
+				  }
+				  else if (returnPress() == 1)
+				  {
+					  std::cout << "Back\n";
+					  return 0;
+				  }
+			  }
+			  //std::cout << "Create\n";
+			  //TODO//
+		}
         else if (button[1].mouseClicked() == true)
         {
           std::cout << "Create\n";
@@ -80,33 +101,50 @@ int Login::update(sf::RenderWindow &window)
           moveLeft();
           break;
 
-          //W button
-        case sf::Keyboard::D:
-          moveRight();
-          break;
+		case sf::Keyboard::Tab:
+			EnteringPassword = EnteringPassword == true ? false : true;
+			break;
 
-          //S button
-        case sf::Keyboard::A:
-          moveLeft();
-          break;
+		case sf::Keyboard::Return:
+			if (usernameString.length() > 0 && passwordString.length() > 0){
+				if (returnPress() == 0)
+				{
 
-          //Return button
-        case sf::Keyboard::Return:
-          if (returnPress() == 0)
-          {
-            std::cout << "Play\n";
-            //TODO//
-          }
-          else if (returnPress() == 1)
-          {
-            std::cout << "Create\n";
-            return 2;
-          }
-          else if (returnPress() == 2)
-          {
-            std::cout << "Back\n";
-            return 0;
-          }
+					Player p;
+					p.name = usernameString;
+					p.password = passwordString;
+					DataManager d;
+					std::cout << (d.login_check(&p) == true ? "LoggedIn\n" : "Error\n");
+					if (d.login_create(&p)){ return 4; }
+					//TODO//
+				}
+				else if (returnPress() == 1)
+				{
+					std::cout << "Back\n";
+					return 0;
+				}
+				EnteringPassword = EnteringPassword == true ? false : true;
+			}
+
+		default:
+			char temp = isTypableText(event.key.code);
+			if (temp == '\\'){
+
+			}
+			else{
+				EnteringPassword == true ? passwordString.push_back(temp) : usernameString.push_back(temp);
+			}
+			if (event.key.code == sf::Keyboard::BackSpace && usernameString.length()>0 && !EnteringPassword){
+				usernameString.pop_back();
+			}
+			if (event.key.code == sf::Keyboard::BackSpace && passwordString.length()>0 && EnteringPassword){
+				passwordString.pop_back();
+			}
+
+			std::cout << (EnteringPassword == true ? passwordString : usernameString) << std::endl;
+
+			break;
+
         }
         break;
 
@@ -177,7 +215,16 @@ void Login::draw(sf::RenderWindow &window)
   window.draw(bk);              //Draw bk
   for (int i = 0; i < 3; i++)   //Drawing button
     window.draw(button[i]);
+
+  passwordStringOBF = "";
+  for (int i = 0; i < passwordString.length(); i++){
+	  passwordStringOBF.push_back('*');
+  }
+
+  password_text.setString("Enter PASSWORD: " + passwordStringOBF);
   window.draw(password_text);   //Draw password prompt
+
+  userName_text.setString("Enter USERNAME: " + usernameString);
   window.draw(userName_text);   //Draw username prompt
 
 }
@@ -206,4 +253,125 @@ void Login::moveLeft()
     button[selectedItem].animateUp();         //Animation
     button[selectedItem].sound_hover.play();  //Sound
   }
+}
+
+char Login::isTypableText(sf::Keyboard::Key a){
+	switch (a){
+	case sf::Keyboard::A:
+		return 'a';
+		break;
+	case sf::Keyboard::B:
+		return 'b';
+		break;
+	case sf::Keyboard::C:
+		return 'c';
+		break;
+	case sf::Keyboard::D:
+		return 'd';
+		break;
+	case sf::Keyboard::E:
+		return 'e';
+		break;
+	case sf::Keyboard::F:
+		return 'f';
+		break;
+	case sf::Keyboard::G:
+		return 'g';
+		break;
+	case sf::Keyboard::H:
+		return 'h';
+		break;
+	case sf::Keyboard::I:
+		return 'i';
+		break;
+	case sf::Keyboard::J:
+		return 'j';
+		break;
+	case sf::Keyboard::K:
+		return 'k';
+		break;
+	case sf::Keyboard::L:
+		return 'l';
+		break;
+	case sf::Keyboard::M:
+		return 'm';
+		break;
+	case sf::Keyboard::N:
+		return 'n';
+		break;
+	case sf::Keyboard::O:
+		return 'o';
+		break;
+	case sf::Keyboard::P:
+		return 'p';
+		break;
+	case sf::Keyboard::Q:
+		return 'q';
+		break;
+	case sf::Keyboard::R:
+		return 'r';
+		break;
+	case sf::Keyboard::S:
+		return 's';
+		break;
+	case sf::Keyboard::T:
+		return 't';
+		break;
+	case sf::Keyboard::U:
+		return 'u';
+		break;
+	case sf::Keyboard::V:
+		return 'v';
+		break;
+	case sf::Keyboard::W:
+		return 'w';
+		break;
+	case sf::Keyboard::X:
+		return 'X';
+		break;
+	case sf::Keyboard::Y:
+		return 'y';
+		break;
+	case sf::Keyboard::Z:
+		return 'z';
+		break;
+
+	case sf::Keyboard::Num1:
+		return '1';
+		break;
+	case sf::Keyboard::Num2:
+		return '2';
+		break;
+	case sf::Keyboard::Num3:
+		return '3';
+		break;
+	case sf::Keyboard::Num4:
+		return '4';
+		break;
+	case sf::Keyboard::Num5:
+		return '5';
+		break;
+	case sf::Keyboard::Num6:
+		return '6';
+		break;
+	case sf::Keyboard::Num7:
+		return '7';
+		break;
+	case sf::Keyboard::Num8:
+		return '8';
+		break;
+	case sf::Keyboard::Num9:
+		return '9';
+		break;
+	case sf::Keyboard::Num0:
+		return '0';
+		break;
+	case sf::Keyboard::Space:
+		return ' ';
+		break;
+
+	default:
+		return '\\';
+	}
+
 }
