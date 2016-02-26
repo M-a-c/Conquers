@@ -4,7 +4,7 @@
 
 //Defines that control locked settins of the game.
 #define FRAMERATE 60
-#define DEBUG_LEVEL 0
+#define DEBUG_LEVEL 100
 
 
 
