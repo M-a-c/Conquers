@@ -2,7 +2,7 @@
 
 GameOptions::GameOptions(sf::RenderWindow &window, int &re_val)
 {
-  name = "Game options ";                      //Set name
+  name = "Game options ";                      //Set name 
   setBackground("images/menu_image3.jpg");    //Load background
   getImage((float)window.getSize().x,         //Load buttons
     (float)window.getSize().y);         
