@@ -58,7 +58,8 @@ int Login::update(sf::RenderWindow &window)
 					  p.password = passwordString;
 					  DataManager d;
 					  std::cout << (d.login_check(&p) == true ? "LoggedIn\n" : "Error\n");
-					  if (d.login_create(&p)){ return 4; }
+            bool check = (d.login_check(&p) == true ? 1 : 0);
+            if (check){ return 4; }
 					  //std::cout << "Create\n";
 					  //TODO//
 				  }
@@ -115,7 +116,8 @@ int Login::update(sf::RenderWindow &window)
 					p.password = passwordString;
 					DataManager d;
 					std::cout << (d.login_check(&p) == true ? "LoggedIn\n" : "Error\n");
-					if (d.login_create(&p)){ return 4; }
+          bool check = (d.login_check(&p) == true ? 1 : 0);
+          if (check){ return 4; }
 					//TODO//
 				}
 				else if (returnPress() == 1)
