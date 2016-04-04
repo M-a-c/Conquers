@@ -13,12 +13,18 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\Scenes">
+      <UniqueIdentifier>{3c6159d4-f77e-47f1-bdfb-fa82fe37be88}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Managers">
+      <UniqueIdentifier>{db9ef0b7-37d3-43ed-90c4-04f2e01b7b31}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Managers\SubManagers">
+      <UniqueIdentifier>{4ef2b4eb-b07e-4a6d-a7c4-9adc44c20918}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Debug.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Datamgr.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Failure.cpp">
@@ -27,26 +33,38 @@
     <ClCompile Include="Game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="HelpScene.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="MainMenuScene.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Scenes.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CreateScene.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="LoginScene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Button.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GameOptionsScene.cpp">
+    <ClCompile Include="StringInput.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CreateScene.cpp">
+      <Filter>Source Files\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="GameOptionsScene.cpp">
+      <Filter>Source Files\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="MainMenuScene.cpp">
+      <Filter>Source Files\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="LoginScene.cpp">
+      <Filter>Source Files\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="HelpScene.cpp">
+      <Filter>Source Files\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Datamgr.cpp">
+      <Filter>Source Files\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="InputManager.cpp">
+      <Filter>Source Files\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="ButtonManager.cpp">
+      <Filter>Source Files\Managers\SubManagers</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -56,29 +74,38 @@
     <ClInclude Include="Defines.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="Datamgr.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="Failure.hpp">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="HelpScene.hpp">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MainMenuScene.hpp">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CreateScene.hpp">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="LoginScene.hpp">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="Button.hpp">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="CreateScene.hpp">
+      <Filter>Source Files\Scenes</Filter>
+    </ClInclude>
     <ClInclude Include="GameOptionsScene.hpp">
+      <Filter>Source Files\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="MainMenuScene.hpp">
+      <Filter>Source Files\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="LoginScene.hpp">
+      <Filter>Source Files\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="HelpScene.hpp">
+      <Filter>Source Files\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Datamgr.h">
+      <Filter>Source Files\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="StringInput.hpp">
       <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ButtonManager.hpp">
+      <Filter>Source Files\Managers\SubManagers</Filter>
+    </ClInclude>
+    <ClInclude Include="InputManager.hpp">
+      <Filter>Source Files\Managers</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

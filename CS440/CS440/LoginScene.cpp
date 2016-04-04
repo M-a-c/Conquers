@@ -40,9 +40,9 @@ int Login::update(sf::RenderWindow &window)
 
         //Mouse over button
       case sf::Event::MouseMoved:
-        button[0].checkHover(event.mouseMove.x, event.mouseMove.y);
-        button[1].checkHover(event.mouseMove.x, event.mouseMove.y);
-        button[2].checkHover(event.mouseMove.x, event.mouseMove.y);
+        button[0].checkHover(event);
+        button[1].checkHover(event);
+        button[2].checkHover(event);
         break;
 
         //Click button
@@ -188,23 +188,17 @@ void Login::getImage(float width, float height)
 
 
   //Getting the images
-  if (!texture[0].loadFromFile("images/b_play.png", sf::IntRect(0, 0, 180, 60)))
-    imageFail_important("images/b_play.jpg");
-  if (!texture[1].loadFromFile("images/b_create.png", sf::IntRect(0, 0, 180, 60)))
-    imageFail_important("images/b_create.jpg");
-  if (!texture[2].loadFromFile("images/b_back.png", sf::IntRect(0, 0, 180, 60)))
-    imageFail_important("images/b_back.jpg");
-
+  button[0].setTexture("images/b_play.png", sf::IntRect(0, 0, 180, 60));
+  button[1].setTexture("images/b_create.png", sf::IntRect(0, 0, 180, 60));
+  button[2].setTexture("images/b_back.png", sf::IntRect(0, 0, 180, 60));
   //Create Login Button
-  button[0].setTexture(texture[0]);
+
   button[0].setPosition(sf::Vector2f((width / 4) - (180 / 2), (height / 8) * 6));
   button[0].setScale(1.15f, 1.15f);
   //Create Create Button
-  button[1].setTexture(texture[1]);
   button[1].setPosition(sf::Vector2f(((width / 4) * 2) - (180 / 2), (height / 8) * 6));
 
   //Create Back Button
-  button[2].setTexture(texture[2]);
   button[2].setPosition(sf::Vector2f(((width / 4) * 3) - (180 / 2), (height / 8) * 6));
 
 

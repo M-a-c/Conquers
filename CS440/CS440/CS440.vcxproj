@@ -80,6 +80,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Button.cpp" />
+    <ClCompile Include="ButtonManager.cpp" />
     <ClCompile Include="CreateScene.cpp" />
     <ClCompile Include="Datamgr.cpp" />
     <ClCompile Include="Debug.cpp" />
@@ -87,12 +88,15 @@
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameOptionsScene.cpp" />
     <ClCompile Include="HelpScene.cpp" />
+    <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="LoginScene.cpp" />
     <ClCompile Include="MainMenuScene.cpp" />
     <ClCompile Include="Scenes.cpp" />
+    <ClCompile Include="StringInput.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Button.hpp" />
+    <ClInclude Include="ButtonManager.hpp" />
     <ClInclude Include="CreateScene.hpp" />
     <ClInclude Include="Datamgr.h" />
     <ClInclude Include="Debug.h" />
@@ -100,8 +104,10 @@
     <ClInclude Include="Failure.hpp" />
     <ClInclude Include="GameOptionsScene.hpp" />
     <ClInclude Include="HelpScene.hpp" />
+    <ClInclude Include="InputManager.hpp" />
     <ClInclude Include="LoginScene.hpp" />
     <ClInclude Include="MainMenuScene.hpp" />
+    <ClInclude Include="StringInput.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

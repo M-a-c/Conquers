@@ -1,3 +1,4 @@
+#pragma once
 #include <SFML/Graphics.hpp>
 #include "Failure.hpp"
 #include "Scenes.cpp"
@@ -5,6 +6,8 @@
 #include <iostream>
 #include <string>
 #include "Failure.hpp"
+#include "InputManager.hpp"
+
 using std::string;
 
 class GameOptions :public Scene

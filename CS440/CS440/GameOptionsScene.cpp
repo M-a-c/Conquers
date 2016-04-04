@@ -31,8 +31,10 @@ int GameOptions::update(sf::RenderWindow &window)
     sf::Event event;
 
     //Look for event
-    while (window.pollEvent(event))
-    {
+    while (window.pollEvent(event)){
+
+		//inputManager->update(window, event);
+		
 
       switch (event.type)
       {
