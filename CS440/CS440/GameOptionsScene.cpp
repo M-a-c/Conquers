@@ -69,8 +69,10 @@ int GameOptions::update(sf::RenderWindow &window)
         if (opButton[0].mouseClicked() == true)
         {
           if (selectedColor > 0 && selectedDur > 0 && selectedTime > 0 && selectedUnits > 0 && selectedEra > 0)
+          {
             std::cout << "Playing game" << std::endl;
             return 5;
+          }
         }
         //back button
         else if (opButton[1].mouseClicked() == true)
@@ -158,9 +160,9 @@ void GameOptions::getImage(float width, float height)
 
   //Play and back button
   opButton[0].setTexture(texture[18]);
-  opButton[0].setPosition(sf::Vector2f((width / 10)*9 - (180 / 2), (height / 4)));
+  opButton[0].setPosition(sf::Vector2f((width / 12)*10 - (180 / 2)+80, (height / 4)));
   opButton[1].setTexture(texture[19]);
-  opButton[1].setPosition(sf::Vector2f((width /10)*9 - (180 / 2), (height / 4)*2));
+  opButton[1].setPosition(sf::Vector2f((width / 12) * 10 - (180 / 2) + 80, (height / 4) * 2));
   
   //Prompts
   prompt[0].setTexture(texture[2]);
@@ -170,7 +172,7 @@ void GameOptions::getImage(float width, float height)
   prompt[4].setTexture(texture[14]);
   prompt[0].setPosition(sf::Vector2f((width / 10) - (200 / 2), (height / 6) ));
   prompt[1].setPosition(sf::Vector2f((width / 10) - (200 / 2), (height / 6)*2 ));
-  prompt[2].setPosition(sf::Vector2f((width / 10) - (280 / 2)+4, (height / 6)*3 ));
+  prompt[2].setPosition(sf::Vector2f((width / 10) - (280 / 2)+10, (height / 6)*3 ));
   prompt[3].setPosition(sf::Vector2f((width / 10) - (200 / 2), (height / 6)*4 ));
   prompt[4].setPosition(sf::Vector2f((width / 10) - (200 / 2), (height / 6)*5 ));
 
@@ -198,17 +200,17 @@ void GameOptions::getImage(float width, float height)
   button[7].setTexture(texture[7]);
   button[8].setTexture(texture[8]);
   button[9].setTexture(texture[9]);
-  button[7].setPosition(sf::Vector2f((width / 10) * 3 - (200 / 2), (height / 6) * 3));
+  button[7].setPosition(sf::Vector2f((width / 10) * 7 - (200 / 2), (height / 6) * 3));
   button[8].setPosition(sf::Vector2f((width / 10) * 5 - (200 / 2), (height / 6) * 3));
-  button[9].setPosition(sf::Vector2f((width / 10) * 7 - (200 / 2), (height / 6) * 3));
+  button[9].setPosition(sf::Vector2f((width / 10) * 3 - (200 / 2), (height / 6) * 3));
 
   //Unit
   button[10].setTexture(texture[15]);
   button[11].setTexture(texture[16]);
   button[12].setTexture(texture[17]);
-  button[10].setPosition(sf::Vector2f((width / 10) * 3 - (200 / 2), (height / 6) * 5));
+  button[10].setPosition(sf::Vector2f((width / 10) * 7 - (200 / 2), (height / 6) * 5));
   button[11].setPosition(sf::Vector2f((width / 10) * 5 - (200 / 2), (height / 6) * 5));
-  button[12].setPosition(sf::Vector2f((width / 10) * 7 - (200 / 2), (height / 6) * 5));
+  button[12].setPosition(sf::Vector2f((width / 10) * 3 - (200 / 2), (height / 6) * 5));
 
   //swords
   for (int i = 0; i < 5; i++)
