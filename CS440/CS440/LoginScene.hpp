@@ -5,6 +5,7 @@
 #include "Failure.hpp"
 #include "Scenes.cpp"
 #include "Button.hpp"
+#include "StringInput.hpp"
 
 using std::string;
 

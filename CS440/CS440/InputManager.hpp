@@ -5,6 +5,7 @@
 
 #include <list>
 #include "Button.hpp"
+#include "ButtonManager.hpp"
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
 
@@ -26,6 +27,7 @@ public:
 
 
 	void update(sf::RenderWindow &window, sf::Event);
+	void draw(sf::RenderWindow &window);
 	// Note: Scott Meyers mentions in his Effective Modern
 	//       C++ book, that deleted functions should generally
 	//       be public as it results in better error messages

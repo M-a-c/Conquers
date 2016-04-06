@@ -109,6 +109,9 @@
     <ClInclude Include="MainMenuScene.hpp" />
     <ClInclude Include="StringInput.hpp" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

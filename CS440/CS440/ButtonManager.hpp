@@ -8,11 +8,11 @@
 
 class ButtonManager {
 public:
-	static ButtonManager& getInstance()
+	static ButtonManager* getInstance()
 	{
 		static ButtonManager instance; // Guaranteed to be destroyed.
 		// Instantiated on first use.
-		return instance;
+		return &instance;
 	}
 private:
 	ButtonManager();                   // Constructor? (the {} brackets) are needed here.
@@ -22,7 +22,10 @@ public:
 	ButtonManager(ButtonManager const&) = delete;
 	void operator=(ButtonManager const&) = delete;
 	std::list < Button > buttons;
-	int update();//Return this value, it will switch the scene
+	void MouseMoved(sf::Event &event);
+	void MouseButtonReleased(sf::Event &event);
+	void draw();
+
 	// if(ButtonManager.)
 
 	// Note: Scott Meyers mentions in his Effective Modern

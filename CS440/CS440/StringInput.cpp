@@ -1,5 +1,35 @@
 #include "StringInput.hpp"
 
+StringInput::StringInput(){
+
+}
+StringInput::~StringInput(){
+
+}
+void StringInput::hide(bool a){
+
+}
+
+
+
+void StringInput::setPosition(sf::Vector2f p){
+
+}
+void StringInput::setPosition(float x, float y){
+
+}
+
+void StringInput::setOuterBoxColor(sf::Color c){
+
+}
+void StringInput::setInnerBoxColor(sf::Color c){
+
+}
+
+void StringInput::setOuterBoxSize(sf::Vector2f v){
+
+}
+
 
 char StringInput::isTypableText(sf::Keyboard::Key a){
 	switch (a){

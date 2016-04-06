@@ -9,8 +9,21 @@ Button::Button()
   else
     sound_hover.setBuffer(buffer_hover);
 
+  Scene = None;
   //Set to false
   playOnce = false;
+}
+Button::Button(GameScene S)
+{
+	//Loading sound file
+	if (!buffer_hover.loadFromFile("Sound/hover_sound.wav"))
+		soundFail("Sound/hover_sound.wav");
+	else
+		sound_hover.setBuffer(buffer_hover);
+
+	Scene = S;
+	//Set to false
+	playOnce = false;
 }
 
 

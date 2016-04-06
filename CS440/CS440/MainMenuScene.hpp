@@ -3,6 +3,7 @@
 #include "Failure.hpp"
 #include "Scenes.cpp"
 #include "Button.hpp"
+#include "inputManager.hpp"
 
 
 class MainMenu : public Scene

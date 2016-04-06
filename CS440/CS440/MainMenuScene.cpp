@@ -25,10 +25,11 @@ int MainMenu::update(sf::RenderWindow &window)
   {
     sf::Event event;
 
+
     //Look for event
     while (window.pollEvent(event))
     {
-
+		InputManager::getInstance()->update(window,event);
       switch (event.type)
       {
         //Event for hitting the x
@@ -139,6 +140,8 @@ void MainMenu::draw(sf::RenderWindow &window)
 {
   window.draw(bk);
   window.draw(sprite_title);
+  InputManager::getInstance()->draw(window);
+
   for (int i = 0; i < 4; i++)
     window.draw(button[i]);
 
