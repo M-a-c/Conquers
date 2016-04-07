@@ -55,18 +55,18 @@ typedef struct Resources{
 }Resources;
 
 /*player structures, player A and B are nested within Game structure*/
-typedef struct Player{
+typedef struct User{
 	std::string name;
 	std::string password;
 	int color; /*1 = green, 0 = red*/
 	Resources resources;
-}Player;
+}User;
 
 /*Game structure hold all game and player parameters, this structure can be saveed with game_save() 
   and loaded with game_load() functions located in DataManager class*/
 typedef struct Game{
-	Player userA;
-	Player userB;
+	User userA;
+	User userB;
 	int roundTime;
 	int gameTime;
 	int era;
@@ -76,10 +76,10 @@ class DataManager: public Debug
 {
 public:
 	/*functions to manage the player structure nested within game structure*/
-	bool login_create(struct Player * player);
-	bool login_check(struct Player * player);
-	bool login_delete(struct Player * player);
-	std::string login_read(struct Player * player);
+  bool login_create(struct User * player);
+  bool login_check(struct User * player);
+  bool login_delete(struct User * player);
+  std::string login_read(struct User * player);
 
 	/*functions to manage game structure*/
 	bool save_game(struct Game * gamesave, std::string gameIdentifier);

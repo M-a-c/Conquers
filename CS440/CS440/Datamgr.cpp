@@ -1,7 +1,7 @@
 #include "Datamgr.h"
 /****Public functions****/
 
-bool DataManager::login_create(struct Player * player)
+bool DataManager::login_create(struct User * player)
 {
 	std::string name = player->name;
 	std::string pass = player->password;
@@ -14,7 +14,7 @@ bool DataManager::login_create(struct Player * player)
 	}
 
 }
-bool DataManager::login_check(struct Player * player)
+bool DataManager::login_check(struct User * player)
 {
 	std::string username = player->name;
 	if (file_exists((player->name + ".sav")) == true){
@@ -25,7 +25,7 @@ bool DataManager::login_check(struct Player * player)
 	}
 }
 
-bool DataManager::login_delete(struct Player * player){
+bool DataManager::login_delete(struct User * player){
 
 	std::string username = player->name;
 	if (delete_file((username + ".sav")) == true){
@@ -37,7 +37,7 @@ bool DataManager::login_delete(struct Player * player){
 
 }
 
-std::string DataManager::login_read(struct Player * player)
+std::string DataManager::login_read(struct User * player)
 {
 	std::string username = player->name;
 	std::string str_read;
