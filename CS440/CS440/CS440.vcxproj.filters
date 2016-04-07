@@ -66,6 +66,9 @@
     <ClCompile Include="ButtonManager.cpp">
       <Filter>Source Files\Managers\SubManagers</Filter>
     </ClCompile>
+    <ClCompile Include="StringManager.cpp">
+      <Filter>Source Files\Managers\SubManagers</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Debug.h">
@@ -106,6 +109,9 @@
     </ClInclude>
     <ClInclude Include="InputManager.hpp">
       <Filter>Source Files\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="StringManager.hpp">
+      <Filter>Source Files\Managers\SubManagers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

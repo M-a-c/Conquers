@@ -21,7 +21,6 @@ private:
   //Screen Updaters
   void draw(sf::RenderWindow &window);
   int update(sf::RenderWindow &window);
-  void getImage(float width, float height);
 
   //Button Handlers
   int returnPress(){ return selectedItem; };

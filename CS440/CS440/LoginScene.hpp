@@ -24,8 +24,6 @@ private:
   char isTypableText(sf::Keyboard::Key);
 
   //Button Handlers
-  void moveRight();
-  void moveLeft();
   int returnPress(){ return selectedItem; };
 
   //Selected item Index

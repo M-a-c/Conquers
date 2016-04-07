@@ -6,8 +6,7 @@ Help::Help(sf::RenderWindow &window, int &re_val)
   name = "Help";      //set name
   text = "Welcome to the help screen, There will be pleanty of magic here soon.\n BTW hit Back  to go back";    //Message
   setBackground("images/menu_image3.jpg");    //Set background
-  getImage((float)window.getSize().x,         //Load buttons
-    (float)window.getSize().y);
+ 
 
   float width = (float)window.getSize().x;
   float height = (float)window.getSize().y;
@@ -15,7 +14,18 @@ Help::Help(sf::RenderWindow &window, int &re_val)
   ButtonManager::getInstance()->addButton(new Button(None, "Back", "images/b_back.png", sf::IntRect(0, 0, 180, 60), sf::Vector2f((width / 4) - (180 / 2), (height / 8) * 6)));
   ButtonManager::getInstance()->addButton(new Button(CreateScene, "Create", "images/b_next.png", sf::IntRect(0, 0, 180, 60), sf::Vector2f(((width / 4) * 3) - (180 / 2), (height / 8) * 6)));
 
-
+  //Loading Font
+  if (!font.loadFromFile("arial.ttf"))
+  {
+	  fontFail("arial.tff");
+  }
+  else
+  {
+	  message.setFont(font);
+	  message.setColor(sf::Color::White);
+	  message.setString(text);
+	  message.setPosition(0, 50);
+  }
 
   selectedItem = 0;                           //Selected item index
   re_val = update(window);                    //update and next scene
@@ -55,26 +65,6 @@ int Help::update(sf::RenderWindow &window)
 		window.display();
 	}
 	return 0;
-}
-
-
-//Loading images
-void Help::getImage(float width, float height)
-{
-
-  //Loading Font
-  if (!font.loadFromFile("arial.ttf"))
-  {
-    fontFail("arial.tff");
-  }
-  else
-  {
-    message.setFont(font);
-    message.setColor(sf::Color::White);
-    message.setString(text);
-    message.setPosition(0, 50);
-  }
-
 }
 
 

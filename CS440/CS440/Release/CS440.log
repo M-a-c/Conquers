@@ -1,9 +1,8 @@
-﻿Build started 4/6/2016 11:41:12 PM.
+﻿Build started 4/7/2016 2:23:53 PM.
      1>Project "F:\Dropbox\Dropbox\Conquers\CS440\CS440\CS440.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         F:\Visual Studio\VC\bin\CL.exe /c /I"F:\Dropbox\Dropbox\Conquers\CS440\\SFML-2.3.2\include" /Zi /nologo /W3 /WX- /sdl /O2 /Oi /Oy- /GL /D _MBCS /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt CreateScene.cpp
-         CreateScene.cpp
-     1>CreateScene.cpp(210): warning C4018: '<' : signed/unsigned mismatch
+         F:\Visual Studio\VC\bin\CL.exe /c /I"F:\Dropbox\Dropbox\Conquers\CS440\\SFML-2.3.2\include" /Zi /nologo /W3 /WX- /sdl /O2 /Oi /Oy- /GL /D _MBCS /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt InputManager.cpp
+         InputManager.cpp
        Link:
          F:\Visual Studio\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"F:\Dropbox\Dropbox\Conquers\CS440\Release\CS440.exe" /NOLOGO /LIBPATH:"F:\Dropbox\Dropbox\Conquers\CS440\\SFML-2.3.2\lib" openal32.lib "sfml-graphics.lib" "sfml-audio.lib" "sfml-window.lib" "sfml-system.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"F:\Dropbox\Dropbox\Conquers\CS440\Release\CS440.pdb" /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"F:\Dropbox\Dropbox\Conquers\CS440\Release\CS440.lib" /MACHINE:X86 /SAFESEH Release\Button.obj
          Release\ButtonManager.obj
@@ -19,6 +18,7 @@
          Release\MainMenuScene.obj
          Release\Scenes.obj
          Release\StringInput.obj
+         Release\StringManager.obj
          Generating code
      1>f:\dropbox\dropbox\conquers\cs440\cs440\buttonmanager.cpp(23): warning C4715: 'ButtonManager::MouseButtonReleased' : not all control paths return a value
          Finished generating code
@@ -27,4 +27,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:03.21
+Time Elapsed 00:00:04.44

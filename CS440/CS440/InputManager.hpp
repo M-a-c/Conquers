@@ -7,6 +7,8 @@
 #include "ButtonManager.hpp"
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
+#include "StringInput.hpp"
+#include <list>
 #include "Button.hpp"
 
 class InputManager {
@@ -24,6 +26,7 @@ private:
 public:
 	InputManager(InputManager const&) = delete;
 	void operator=(InputManager const&) = delete;
+	std::list < StringInput > strInput;
 
 
 	void update(sf::RenderWindow &window, sf::Event);

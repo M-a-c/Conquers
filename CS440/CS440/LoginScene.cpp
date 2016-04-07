@@ -8,6 +8,11 @@ Login::Login(sf::RenderWindow &window, int &re_val)
   setBackground("images/menu_image3.jpg");    //Set background
   getImage((float)window.getSize().x,         //Load buttons
     (float)window.getSize().y);
+
+
+
+
+
   EnteringPassword = false;				
   selectedItem = 0;                           //Selected item index
   re_val = update(window);                    //update and next scene
@@ -60,29 +65,27 @@ int Login::update(sf::RenderWindow &window)
 					  std::cout << (d.login_check(&p) == true ? "LoggedIn\n" : "Error\n");
 
 					  bool check = (d.login_check(&p) == true ? 1 : 0);
-					  if (check){ return 4; }
+					  if (check){ return OptionsScene; }
 
-					  //std::cout << "Create\n";
-					  //TODO//
+
 				  }
 				  else if (returnPress() == 1)
 				  {
 					  std::cout << "Back\n";
-					  return 0;
+					  return MainMenuScene;
 				  }
 			  }
-			  //std::cout << "Create\n";
-			  //TODO//
+
 		}
         else if (button[1].mouseClicked() == true)
         {
           std::cout << "Create\n";
-          return 2;
+          return CreateScene;
         }
         else if (button[2].mouseClicked() == true)
         {
           std::cout << "Back\n";
-          return 0;
+          return MainMenuScene;
         }
         break;
 
@@ -95,41 +98,11 @@ int Login::update(sf::RenderWindow &window)
           return 0;
           break;
           //Up arrow
-        case sf::Keyboard::Right:
-          moveRight();
-          break;
-
-          //Down arrow
-        case sf::Keyboard::Left:
-          moveLeft();
-          break;
 
 		case sf::Keyboard::Tab:
 			EnteringPassword = EnteringPassword == true ? false : true;
 			break;
 
-		case sf::Keyboard::Return:
-			if (usernameString.length() > 0 && passwordString.length() > 0){
-				if (returnPress() == 0)
-				{
-
-					Player p;
-					p.name = usernameString;
-					p.password = passwordString;
-					DataManager d;
-					std::cout << (d.login_check(&p) == true ? "LoggedIn\n" : "Error\n");
-
-					bool check = (d.login_check(&p) == true ? 1 : 0);
-					if (check){ return 4; }
-					//TODO//
-				}
-				else if (returnPress() == 1)
-				{
-					std::cout << "Back\n";
-					return 0;
-				}
-				EnteringPassword = EnteringPassword == true ? false : true;
-			}
 
 		default:
 			StringInput T = StringInput();
@@ -227,30 +200,4 @@ void Login::draw(sf::RenderWindow &window)
   userName_text.setString("Enter USERNAME: " + usernameString);
   window.draw(userName_text);   //Draw username prompt
 
-}
-
-
-//Handler for Right
-void Login::moveRight()
-{
-  if (selectedItem + 1 < 3)
-  {
-    button[selectedItem].animateDown();       //No animation
-    selectedItem++;                           //next button
-    button[selectedItem].animateUp();         //Animation
-    button[selectedItem].sound_hover.play();  //Sound
-  }
-}
-
-
-//Handler for Left
-void Login::moveLeft()
-{
-  if (selectedItem - 1 >= 0)
-  {
-    button[selectedItem].animateDown();       //No animation
-    selectedItem--;                           //next button
-    button[selectedItem].animateUp();         //Animation
-    button[selectedItem].sound_hover.play();  //Sound
-  }
 }

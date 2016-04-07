@@ -5,6 +5,7 @@
 #include "Failure.hpp"
 #include "Scenes.cpp"
 #include "Button.hpp"
+#include "StringInput.hpp"
 
 using std::string;
 
@@ -20,7 +21,6 @@ private:
   void draw(sf::RenderWindow &window);
   int update(sf::RenderWindow &window);
   void getImage(float width, float height);
-  char isTypableText(sf::Keyboard::Key);
 
   //Button Handlers
   void moveRight();

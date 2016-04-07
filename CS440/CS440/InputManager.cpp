@@ -18,7 +18,12 @@ void InputManager::update(sf::RenderWindow &window, sf::Event event){
 		//Click button
 		case::sf::Event::MouseButtonReleased:
 			ButtonManager::getInstance()->MouseButtonReleased(event);
+			for (auto L : strInput){
+				
+			}
+
 			break;
+
 
 	}
 }
@@ -26,3 +31,4 @@ void InputManager::update(sf::RenderWindow &window, sf::Event event){
 void InputManager::draw(sf::RenderWindow &window){
 	ButtonManager::getInstance()->draw(window);
 }
+ 

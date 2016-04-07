@@ -29,7 +29,7 @@ int main()
   while (1)
   {
   
-    if (nextScene == 0 || nextScene == -1)
+    if (nextScene == 0 || nextScene==MainMenuScene || nextScene == -1)
     {
       MainMenu mainMenu(window, nextScene);
       continue;
