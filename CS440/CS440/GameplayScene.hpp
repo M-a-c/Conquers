@@ -49,7 +49,7 @@ private:
 
 public:
   //Constructor and deconstructor
-  Gameplay(sf::RenderWindow &window, int &re_val,bool loadGame);
+  Gameplay(sf::RenderWindow &window, int &re_val);
   ~Gameplay();
 private:
   //Render & Load

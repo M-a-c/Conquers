@@ -22,6 +22,9 @@
     <Filter Include="Source Files\Managers\SubManagers">
       <UniqueIdentifier>{4ef2b4eb-b07e-4a6d-a7c4-9adc44c20918}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Managers\SubManagers\SingleObjects">
+      <UniqueIdentifier>{2bd05fae-f0d9-4516-8b5f-9c314f995e62}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Debug.cpp">
@@ -34,12 +37,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Scenes.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Button.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="StringInput.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="CreateScene.cpp">
@@ -69,6 +66,27 @@
     <ClCompile Include="StringManager.cpp">
       <Filter>Source Files\Managers\SubManagers</Filter>
     </ClCompile>
+    <ClCompile Include="Ai.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GameplayScene.cpp">
+      <Filter>Source Files\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="ConquerScene.cpp">
+      <Filter>Source Files\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Button.cpp">
+      <Filter>Source Files\Managers\SubManagers\SingleObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="StringInput.cpp">
+      <Filter>Source Files\Managers\SubManagers\SingleObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="RunningData.cpp">
+      <Filter>Source Files\Managers</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Debug.h">
@@ -78,9 +96,6 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="Failure.hpp">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Button.hpp">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="CreateScene.hpp">
@@ -101,9 +116,6 @@
     <ClInclude Include="Datamgr.h">
       <Filter>Source Files\Managers</Filter>
     </ClInclude>
-    <ClInclude Include="StringInput.hpp">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="ButtonManager.hpp">
       <Filter>Source Files\Managers\SubManagers</Filter>
     </ClInclude>
@@ -112,6 +124,27 @@
     </ClInclude>
     <ClInclude Include="StringManager.hpp">
       <Filter>Source Files\Managers\SubManagers</Filter>
+    </ClInclude>
+    <ClInclude Include="Ai.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameplayScene.hpp">
+      <Filter>Source Files\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="ConquerScene.hpp">
+      <Filter>Source Files\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Button.hpp">
+      <Filter>Source Files\Managers\SubManagers\SingleObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="StringInput.hpp">
+      <Filter>Source Files\Managers\SubManagers\SingleObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="RunningData.hpp">
+      <Filter>Source Files\Managers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

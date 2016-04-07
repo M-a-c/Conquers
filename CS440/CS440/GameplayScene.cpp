@@ -1,27 +1,27 @@
 #include "GameplayScene.hpp"
 
-Gameplay::Gameplay(sf::RenderWindow &window,int &re_val, bool loadGame)
+Gameplay::Gameplay(sf::RenderWindow &window,int &re_val)
 {
   //Setting game variables
   name = "Gameplay";                          
   userTurn = true;
   
   //New game
-  if (!loadGame)                             
-  {
+  //if (!loadGame)                             
+  //{
     initTimers(0,0);                          //Initialze time TODO 
     getImage((float)window.getSize().x,       //Load images
       (float)window.getSize().y);
     re_val = update(window);                  //update and next scene
     return;
-  }
+  //}
 
   //TODO
   //Load game from file
-  else                                        
-  {
+ // else                                        
+  //{
     //Login into game 
-  }
+  //}
 
 }
 

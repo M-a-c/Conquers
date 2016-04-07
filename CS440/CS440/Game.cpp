@@ -7,6 +7,7 @@
 #include "CreateScene.hpp"
 #include "Datamgr.h"
 #include "GameOptionsScene.hpp"
+#include "GamePlayScene.hpp"
 
 int main()
 {
@@ -53,6 +54,9 @@ int main()
 	{
 		GameOptions gameOptions(window, nextScene);
 		continue;
+	}
+	else if (nextScene == PlayGameScene){
+		Gameplay gamePlayScene(window, nextScene);
 	}
     else
       break;

@@ -79,35 +79,45 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Ai.cpp" />
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="ButtonManager.cpp" />
+    <ClCompile Include="ConquerScene.cpp" />
     <ClCompile Include="CreateScene.cpp" />
     <ClCompile Include="Datamgr.cpp" />
     <ClCompile Include="Debug.cpp" />
     <ClCompile Include="Failure.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameOptionsScene.cpp" />
+    <ClCompile Include="GameplayScene.cpp" />
     <ClCompile Include="HelpScene.cpp" />
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="LoginScene.cpp" />
     <ClCompile Include="MainMenuScene.cpp" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="RunningData.cpp" />
     <ClCompile Include="Scenes.cpp" />
     <ClCompile Include="StringInput.cpp" />
     <ClCompile Include="StringManager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Ai.hpp" />
     <ClInclude Include="Button.hpp" />
     <ClInclude Include="ButtonManager.hpp" />
+    <ClInclude Include="ConquerScene.hpp" />
     <ClInclude Include="CreateScene.hpp" />
     <ClInclude Include="Datamgr.h" />
     <ClInclude Include="Debug.h" />
     <ClInclude Include="Defines.h" />
     <ClInclude Include="Failure.hpp" />
     <ClInclude Include="GameOptionsScene.hpp" />
+    <ClInclude Include="GameplayScene.hpp" />
     <ClInclude Include="HelpScene.hpp" />
     <ClInclude Include="InputManager.hpp" />
     <ClInclude Include="LoginScene.hpp" />
     <ClInclude Include="MainMenuScene.hpp" />
+    <ClInclude Include="Player.hpp" />
+    <ClInclude Include="RunningData.hpp" />
     <ClInclude Include="StringInput.hpp" />
     <ClInclude Include="StringManager.hpp" />
   </ItemGroup>

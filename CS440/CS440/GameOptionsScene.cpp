@@ -71,7 +71,7 @@ int GameOptions::update(sf::RenderWindow &window)
           if (selectedColor > 0 && selectedDur > 0 && selectedTime > 0 && selectedUnits > 0 && selectedEra > 0)
           {
             std::cout << "Playing game" << std::endl;
-            return 5;
+            return PlayGameScene;
           }
         }
         //back button

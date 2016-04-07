@@ -14,7 +14,7 @@ enum GameScene
 	LoginScene,
 	MainMenuScene,
 	Exit,
-	GamePlayScene,
+	PlayGameScene,
 };
 
 class Button :public sf::Sprite, public Failure{

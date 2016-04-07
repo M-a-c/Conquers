@@ -58,7 +58,7 @@ int Login::update(sf::RenderWindow &window)
 				  if (returnPress() == 0)
 				  {
 
-					  Player p;
+					  User p;
 					  p.name = usernameString;
 					  p.password = passwordString;
 					  DataManager d;
