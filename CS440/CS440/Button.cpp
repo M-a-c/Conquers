@@ -9,34 +9,42 @@ Button::Button()
   else
     sound_hover.setBuffer(buffer_hover);
 
+  actionString = "default";
+
   Scene = None;
   //Set to false
   playOnce = false;
 }
-Button::Button(GameScene S)
-{
+
+Button::Button(GameScene S, string a, string textureFileString, sf::IntRect rectangleForTexture, sf::Vector2f position){
+
 	//Loading sound file
 	if (!buffer_hover.loadFromFile("Sound/hover_sound.wav"))
 		soundFail("Sound/hover_sound.wav");
 	else
 		sound_hover.setBuffer(buffer_hover);
-
+	
+	setTexture(textureFileString, rectangleForTexture);
+	setPosition(position);
+	actionString = a;
 	Scene = S;
 	//Set to false
 	playOnce = false;
+
 }
 
 
 //Deconstrcutor message
 Button::~Button()
 {
-  std::cout << "Deconstrcutor for Buttons" << std::endl;
+  std::cout << "Deconstrcutor for Button "<<actionString << std::endl;
 }
 
 
 //Mouse clicked and vlaid
 bool Button::mouseClicked()
 {
+	//std::cout << "clicked";
   if (mouseOver)
   {
     return true;
@@ -103,11 +111,12 @@ void Button::animateDown()
 }
 
 bool Button::loadFromFile(string file, sf::IntRect rect){
-	setTexture(file, rect);
+	return setTexture(file, rect);
 }
 
 
 bool Button::setTexture(string file, sf::IntRect rect){
+	std::cout << "trying to load " << file << std::endl;
 	if (!this->texture.loadFromFile(file, rect)){
 		Failure::imageFail_important(file);
 	}

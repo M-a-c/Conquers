@@ -8,19 +8,19 @@
 enum GameScene
 {
 	None,
+	CreateScene,
 	OptionsScene,
 	HelpScene,
 	LoginScene,
+	MainMenuScene,
 	Exit,
-	CreateScene,
-	MainMenuScene
+	GamePlayScene,
 };
 
 class Button :public sf::Sprite, public Failure{
 public:
   Button();   //Nothing Here
-  Button(GameScene);   //Nothing Here
-  Button(GameScene,sf::Vector2f);   //Nothing Here
+  Button(GameScene S,string a, string textureFileString, sf::IntRect rectangleForTexture, sf::Vector2f position);
   ~Button();  //Deconstuctor
   void checkHover(int mX,int mY);   //Checks if the mouse is over the button 
   void checkHover(sf::Event event);   //Checks if the mouse is over the button takes an event instead

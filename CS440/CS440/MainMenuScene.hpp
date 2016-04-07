@@ -13,8 +13,6 @@ public:
   ~MainMenu();
 private:
   //Button Handlers
-  void moveUp();
-  void moveDown();
   int returnPress(){ return selectedItem; };
 
   //Screen Updaters

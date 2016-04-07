@@ -15,16 +15,22 @@ public:
 		return &instance;
 	}
 private:
-	ButtonManager();                   // Constructor? (the {} brackets) are needed here.
-	~ButtonManager();
+	ButtonManager() {};                  // Constructor? (the {} brackets) are needed here.
+	int returnScene;
 	
 public:
 	ButtonManager(ButtonManager const&) = delete;
 	void operator=(ButtonManager const&) = delete;
-	std::list < Button > buttons;
+	std::list < Button * > buttons;
+	
+	void addButton(Button *b);
 	void MouseMoved(sf::Event &event);
-	void MouseButtonReleased(sf::Event &event);
-	void draw();
+	GameScene MouseButtonReleased(sf::Event &event);
+	int nextScene();
+	void removeAllButtons();
+
+	void draw(sf::RenderWindow &window);
+	int changeScene;
 
 	// if(ButtonManager.)
 

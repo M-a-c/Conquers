@@ -4,10 +4,10 @@
 #pragma once 
 
 #include <list>
-#include "Button.hpp"
 #include "ButtonManager.hpp"
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
+#include "Button.hpp"
 
 class InputManager {
 public:
