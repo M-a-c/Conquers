@@ -34,22 +34,22 @@ int main()
       MainMenu mainMenu(window, nextScene);
       continue;
     }
-    else if (nextScene == 1)
+    else if (nextScene == LoginScene)
     {
       Login login(window, nextScene);
       continue;
     }
-    else if (nextScene == 2)
+    else if (nextScene == CreateScene)
     {
       Create create(window, nextScene);
       continue;
     }
-    else if (nextScene == 3)
+    else if (nextScene == HelpScene)
     {
       Help help(window, nextScene);
       continue;
     }
-	else if (nextScene == 4)
+	else if (nextScene == OptionsScene)
 	{
 		GameOptions gameOptions(window, nextScene);
 		continue;

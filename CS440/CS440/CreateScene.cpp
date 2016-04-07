@@ -9,6 +9,8 @@ Create::Create(sf::RenderWindow &window, int &re_val)
     (float)window.getSize().y);
   EnteringPassword = false;
   selectedItem = 0;                           //Selected item index
+
+
   re_val = update(window);                    //update and next scene
   return;                                     //return
 }
@@ -85,14 +87,6 @@ int Create::update(sf::RenderWindow &window)
 				return 0;
 				break;
 				//Up arrow
-			case sf::Keyboard::Right:
-				moveRight();
-				break;
-
-			  //Down arrow
-			case sf::Keyboard::Left:
-				moveLeft();
-				break;
 
 			case sf::Keyboard::Tab:
 				EnteringPassword = EnteringPassword == true ? false : true;
@@ -225,31 +219,6 @@ void Create::draw(sf::RenderWindow &window)
 
 }
 
-
-//Handler for Right
-void Create::moveRight()
-{
-  if (selectedItem + 1 < 2)
-  {
-    button[selectedItem].animateDown();       //No animation
-    selectedItem++;                           //next button
-    button[selectedItem].animateUp();         //Animation
-    button[selectedItem].sound_hover.play();  //Sound
-  }
-}
-
-
-//Handler for Left
-void Create::moveLeft()
-{
-  if (selectedItem - 1 >= 0)
-  {
-    button[selectedItem].animateDown();       //No animation
-    selectedItem--;                           //next button
-    button[selectedItem].animateUp();         //Animation
-    button[selectedItem].sound_hover.play();  //Sound
-  }
-}
 
 char Create::isTypableText(sf::Keyboard::Key a){
 	switch (a){

@@ -5,6 +5,8 @@
 #include "Failure.hpp"
 #include "Scenes.cpp"
 #include "Button.hpp"
+#include "ButtonManager.hpp"
+#include "InputManager.hpp"
 
 using std::string;
 
@@ -22,8 +24,6 @@ private:
   void getImage(float width, float height);
 
   //Button Handlers
-  void moveRight();
-  void moveLeft();
   int returnPress(){ return selectedItem; };
 
   //Selected item Index
