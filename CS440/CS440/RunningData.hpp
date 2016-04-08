@@ -6,6 +6,7 @@
 #include <list>
 #include "StringInput.hpp"
 #include "string"
+#include "Datamgr.h"
 
 
 class RunningData {
@@ -24,6 +25,7 @@ public:
 	void operator=(RunningData const&) = delete;
 	void save();
 	void reset();
+	void displayAll();
 
 	float SelectedRoundTime;
 	float SelectedGameTime;
@@ -47,7 +49,7 @@ public:
 	int maxMilitary;
 	int maxPopulaiton;
 	int military;//combo of units
-	bool turnCoutner;
+	bool turnCounter;
 	string PlayerName;
 	string PlayerPassword;
 

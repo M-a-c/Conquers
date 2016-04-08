@@ -71,6 +71,15 @@ int GameOptions::update(sf::RenderWindow &window)
           if (selectedColor > 0 && selectedDur > 0 && selectedTime > 0 && selectedUnits > 0 && selectedEra > 0)
           {
             std::cout << "Playing game" << std::endl;
+			
+			RunningData::getInstance()->SelectedColor = selectedColor;
+			RunningData::getInstance()->SelectedGameTime = selectedTime;
+			RunningData::getInstance()->SelectedRoundTime = selectedDur;
+			RunningData::getInstance()->SelectedEra = selectedEra;
+			RunningData::getInstance()->SelectedUnitNumber = selectedUnits;
+
+			RunningData::getInstance()->displayAll();
+
             return PlayGameScene;
           }
         }
@@ -284,24 +293,24 @@ void GameOptions::buttonSelectionCheck()
   //Duration Selection
   if (button[7].mouseClicked() == true)
   {
-    selectedDur = 1;
-    sword[3].setPosition(button[7].getPosition());
+	  selectedDur = 3;
+	  sword[3].setPosition(button[7].getPosition());
   }
   else if (button[8].mouseClicked() == true)
   {
-    selectedDur = 2;
-    sword[3].setPosition(button[8].getPosition());
+	  selectedDur = 2;
+	  sword[3].setPosition(button[8].getPosition());
   }
   else if (button[9].mouseClicked() == true)
   {
-    selectedDur = 3;
-    sword[3].setPosition(button[9].getPosition());
+	  selectedDur = 1;
+	  sword[3].setPosition(button[9].getPosition());
   }
 
   //Unit Selection
   if (button[10].mouseClicked() == true)
   {
-    selectedUnits = 1;
+    selectedUnits = 3;
     sword[4].setPosition(button[10].getPosition());
   }
   else if (button[11].mouseClicked() == true)
@@ -311,7 +320,7 @@ void GameOptions::buttonSelectionCheck()
   }
   else if (button[12].mouseClicked() == true)
   {
-    selectedUnits = 3;
+    selectedUnits = 1;
     sword[4].setPosition(button[12].getPosition());
   }
 

@@ -7,6 +7,8 @@
 #include "Button.hpp"
 #include "Player.hpp"
 #include "Ai.hpp"
+#include "RunningData.hpp"
+#include "ConquerScene.hpp"
 
 using std::string;
 using std::to_string;
@@ -47,6 +49,8 @@ private:
   sf::Time gameMaxTime;
   sf::Time prevMoneyTime;
 
+  float TempTime; //where time is put after it is retrived from the load.
+
 public:
   //Constructor and deconstructor
   Gameplay(sf::RenderWindow &window, int &re_val);
@@ -59,7 +63,7 @@ private:
 
   //Events
   void mouseHoverEvent(sf::Event);              //Mouse is hover over buttons
-  void clickEvents();                           //Events based on click
+  int clickEvents(sf::RenderWindow	&window);                           //Events based on click
   void endTurn();                               //End turn functions
   void updateStats();                           //Update stats
 
@@ -77,4 +81,5 @@ private:
 
   //Save Game
   void saveGame();                              //Save game
+  void loadGame();								//Load game
 };

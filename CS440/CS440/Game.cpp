@@ -8,12 +8,15 @@
 #include "Datamgr.h"
 #include "GameOptionsScene.hpp"
 #include "GamePlayScene.hpp"
+#include "RunningData.hpp"
+#include "Questions.hpp"
 
 int main()
 {
   sf::RenderWindow window(sf::VideoMode(1280, 720), "Conqueror");   //Creating the render window
   window.setPosition(sf::Vector2i(300, 300));   //Set screen position
-
+  RunningData::getInstance()->reset();
+  Questions::getInstance()->gameInit();
   //Music
   sf::Music menu_music;                                 //Music object
   if (!menu_music.openFromFile("Sound/menu_music.ogg")) //Load music

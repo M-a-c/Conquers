@@ -54,13 +54,16 @@ bool DataManager::saveRunningData(std::string gameIdentifier)
 	/*create pointer to current game data running*/
 	RunningData * rD;
 	rD = RunningData::getInstance();
-	
-	if ( file_exists(gameIdentifier + ".sav") == true )
-	{
+	delete_file(gameIdentifier + ".sav");
+
+	create_file(gameIdentifier,"sav");
+
+//	if ( file_exists(gameIdentifier + ".sav") == true )
+//	{
 
 		/*user A name, password, team color*/
-		//write_data(gameIdentifier + ".sav", rD->PlayerName + "1n");
-		//write_data(gameIdentifier + ".sav", rD->PlayerPassword + "1p");
+		write_data(gameIdentifier + ".sav", rD->PlayerName );
+		write_data(gameIdentifier + ".sav", rD->PlayerPassword );
 
 		write_data(gameIdentifier + ".sav", std::to_string(rD->SelectedRoundTime));
 		write_data(gameIdentifier + ".sav", std::to_string(rD->SelectedGameTime));
@@ -98,12 +101,12 @@ bool DataManager::saveRunningData(std::string gameIdentifier)
 		write_data(gameIdentifier + ".sav", std::to_string(rD->Ai_maxMilitary));
 		write_data(gameIdentifier + ".sav", std::to_string(rD->Ai_maxPopulaiton));
 		write_data(gameIdentifier + ".sav", std::to_string(rD->Ai_military));//combo of units
-		write_data(gameIdentifier + ".sav", std::to_string(rD->Ai_cavalryUnit));
-		write_data(gameIdentifier + ".sav", "\n\r");
+		write_data(gameIdentifier + ".sav", std::to_string(rD->Ai_cavalryUnit) + "\n");
+
 
 		return true;
-	}
-	else{ return false; }
+	//}
+	//else{ return false; }
 }
 
 bool DataManager::load_game(std::string gameIdentifier)
@@ -164,12 +167,14 @@ bool DataManager::load_game(std::string gameIdentifier)
 		std::ifstream  dataIn(gameIdentifier);
 
 		//associate input stream with game data file
-		dataIn.open(gameIdentifier);
-
+		dataIn.open(gameIdentifier + ".sav");
 		dataIn >> Pname >> Ppass >> SRtime >> SGtime >> Scolor >> Sera >> Unumber >> CGtime >> Qindex >> scr >> gld >> pop >> lnd >> Concount;
 		dataIn >> clr >> Sunit >> Cavunit >> infUnit >> maxMil >> maxPop >> turnCnt >> Aiscore >> Aigold >> Aipop >> Ailnd >> AicCount;
 		dataIn >> Aicolor >> AisiegeUnit >> AimaxPop >> Aimil >> AicavUnit;
 		dataIn.close();
+
+		std::cout << "reading from file." << std::endl;
+		std::cout << "Pname : " << Pname << std::endl;
 
 		rD->PlayerName = Pname;
 		rD->PlayerPassword = Ppass;

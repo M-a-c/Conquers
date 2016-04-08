@@ -95,6 +95,7 @@
     <ClCompile Include="LoginScene.cpp" />
     <ClCompile Include="MainMenuScene.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Questions.cpp" />
     <ClCompile Include="RunningData.cpp" />
     <ClCompile Include="Scenes.cpp" />
     <ClCompile Include="StringInput.cpp" />
@@ -117,12 +118,10 @@
     <ClInclude Include="LoginScene.hpp" />
     <ClInclude Include="MainMenuScene.hpp" />
     <ClInclude Include="Player.hpp" />
+    <ClInclude Include="Questions.hpp" />
     <ClInclude Include="RunningData.hpp" />
     <ClInclude Include="StringInput.hpp" />
     <ClInclude Include="StringManager.hpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

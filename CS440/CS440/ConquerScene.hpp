@@ -7,6 +7,7 @@
 #include "Button.hpp"
 #include "Player.hpp"
 #include "Ai.hpp"
+#include "RunningData.hpp"
 
 class Conquer : public Scene
 {

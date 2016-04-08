@@ -6,12 +6,25 @@ Gameplay::Gameplay(sf::RenderWindow &window,int &re_val)
   name = "Gameplay";                          
   userTurn = true;
   
+
+  TempTime = 0;
+ 
   //New game
   //if (!loadGame)                             
   //{
-    initTimers(0,0);                          //Initialze time TODO 
+    initTimers(0, 0);                          //Initialze time TODO 
     getImage((float)window.getSize().x,       //Load images
       (float)window.getSize().y);
+
+	if (RunningData::getInstance()->SelectedGameTime == 0){
+		
+	}
+	else{
+		loadGame();
+	
+	}
+
+
     re_val = update(window);                  //update and next scene
     return;
   //}
@@ -71,7 +84,9 @@ int Gameplay::update(sf::RenderWindow &window)
         break;
 
         case sf::Event::MouseButtonReleased:
-        clickEvents();
+			if (clickEvents(window)){
+				return MainMenuScene;
+			}
         break;
 
       }
@@ -203,7 +218,7 @@ void Gameplay::mouseHoverEvent(sf::Event event)
 
 
 //Checking for click events
-void Gameplay::clickEvents()
+int Gameplay::clickEvents(sf::RenderWindow &window)
 {
 
   if (increasePopulation.mouseClicked())
@@ -257,6 +272,8 @@ void Gameplay::clickEvents()
   //TODO//
   else if (attack.mouseClicked())
   {
+	  saveGame();
+	  Conquer conquer(window,player1,player2);
    //Conquer mode 
   }
 
@@ -269,12 +286,14 @@ void Gameplay::clickEvents()
   //Save and exit clicked
   else if (menu.mouseClicked())
   {
+	  saveGame();
+	  return 1;
     //TODO
     //Save and quit need to be returned
   }
 
 
-    
+  return 0;
 
 }
 
@@ -289,7 +308,7 @@ void Gameplay::updateStats()
   iconVal[5].setString(to_string(player1.getSiegeUnits()));
   iconVal[6].setString(to_string(player1.getMilitaryUnits()) + " / " + to_string(player1.max_military));
   score.setString("Score:"+to_string(player1.getScore()));
-  time.setString("Time:" + to_string((int)roundTime.getElapsedTime().asSeconds()) + "/" + to_string((int)gameTimer.getElapsedTime().asSeconds()));
+  time.setString("Time:" + to_string((int)roundTime.getElapsedTime().asSeconds()) + "/" + to_string((int)(gameTimer.getElapsedTime().asSeconds()+ TempTime)));
 }
 
 //Drawing buttons referenced by draw function
@@ -307,6 +326,7 @@ void Gameplay::drawButtons(sf::RenderWindow &window)
 //Ending user turn 
 void Gameplay::endTurn()
 {
+	RunningData::getInstance()->save();//Save.
   elapsedTime = roundTime.restart();  //restart time
   userTurn = false;                   //Turn off user
 }
@@ -360,5 +380,65 @@ void Gameplay::clockEvents()
 }
 
 
+void Gameplay::saveGame(){
+
+	RunningData * r = RunningData::getInstance();
+
+
+		r->currentGameTime = gameTimer.getElapsedTime().asSeconds() + TempTime;
+
+		//int questionIndex = 0//FIX
+			
+		r->score = player1.getScore();
+		r->gold = player1.getGold();
+		r->population = player1.getPopluation();
+		r->land = player1.getLand();
+		//r->conquerCount = player1.conquer
+		r->color = player1.getColor();
+		r->siegeUnit = player1.getSiegeUnits();
+		r->cavalryUnit = player1.getCavalryUnits();
+		r->infantryUnit = player1.getInfantryUnits();
+		r->maxMilitary = player1.max_military;
+		r->maxPopulaiton = player1.max_population;
+		r->military = player1.getMilitaryUnits();//combo of units
+
+			r->turnCounter = userTurn;
+
+
+		r->Ai_score = player2.getScore();
+		r->Ai_gold = player2.getGold();
+		r->Ai_population = player2.getPopluation();
+		r->Ai_land = player2.getLand();
+		//r->Ai_conquerCount = player2.conquer
+		r->Ai_color = player2.getColor();
+		r->Ai_siegeUnit = player2.getSiegeUnits();
+		r->Ai_cavalryUnit = player2.getCavalryUnits();
+		r->Ai_infantryUnit = player2.getInfantryUnits();
+		r->Ai_maxMilitary = player2.max_military;
+		r->Ai_maxPopulaiton = player2.max_population;
+		r->Ai_military = player2.getMilitaryUnits();//combo of units
+
+		r->save();
+		r->displayAll();
+}
+
+
+void Gameplay::loadGame(){
+
+
+
+	RunningData * r = RunningData::getInstance();
+
+
+	TempTime = r->currentGameTime;
+
+	//int questionIndex = 0//FIX
+
+	player1.reInit(r->score,r->gold,r->military,r->siegeUnit,r->cavalryUnit,r->infantryUnit,r->population,r->land,r->conquerCount,r->color);
+	player2.reInit(r->Ai_score, r->Ai_gold, r->Ai_military, r->Ai_siegeUnit, r->Ai_cavalryUnit, r->Ai_infantryUnit, r->Ai_population, r->Ai_land, r->Ai_conquerCount, r->Ai_color);
+
+
+	r->displayAll();
+}
 
 

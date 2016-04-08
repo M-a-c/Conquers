@@ -217,3 +217,17 @@ void Player::removeCavalryUnit(int amt)
     military = military + rem;
   }
 }
+
+void Player::reInit(int score, int gold, int military, int siegeUnit, int cavalryUnit, int infantryUnit, int population, int land, int conqueorCount, int player_color) {
+
+	this->score = score;
+	this->gold = gold;
+	this->military = military;
+	this->siegeUnit = siegeUnit;
+	this->cavalryUnit = cavalryUnit;
+	this->infantryUnit = infantryUnit;
+	this->population = population;
+	this->land = land;
+	this->conqueorCount = conqueorCount;
+	this->player_color = player_color;
+}

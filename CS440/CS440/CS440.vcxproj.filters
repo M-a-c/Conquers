@@ -25,6 +25,12 @@
     <Filter Include="Source Files\Managers\SubManagers\SingleObjects">
       <UniqueIdentifier>{2bd05fae-f0d9-4516-8b5f-9c314f995e62}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Scenes\Menus">
+      <UniqueIdentifier>{93bd8962-7975-41a7-9906-4814680dc04f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Scenes\GamePlay">
+      <UniqueIdentifier>{c6375a59-3678-4da7-9119-169c78bb75c1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Debug.cpp">
@@ -39,19 +45,7 @@
     <ClCompile Include="Scenes.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CreateScene.cpp">
-      <Filter>Source Files\Scenes</Filter>
-    </ClCompile>
     <ClCompile Include="GameOptionsScene.cpp">
-      <Filter>Source Files\Scenes</Filter>
-    </ClCompile>
-    <ClCompile Include="MainMenuScene.cpp">
-      <Filter>Source Files\Scenes</Filter>
-    </ClCompile>
-    <ClCompile Include="LoginScene.cpp">
-      <Filter>Source Files\Scenes</Filter>
-    </ClCompile>
-    <ClCompile Include="HelpScene.cpp">
       <Filter>Source Files\Scenes</Filter>
     </ClCompile>
     <ClCompile Include="Datamgr.cpp">
@@ -72,12 +66,6 @@
     <ClCompile Include="Player.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GameplayScene.cpp">
-      <Filter>Source Files\Scenes</Filter>
-    </ClCompile>
-    <ClCompile Include="ConquerScene.cpp">
-      <Filter>Source Files\Scenes</Filter>
-    </ClCompile>
     <ClCompile Include="Button.cpp">
       <Filter>Source Files\Managers\SubManagers\SingleObjects</Filter>
     </ClCompile>
@@ -86,6 +74,27 @@
     </ClCompile>
     <ClCompile Include="RunningData.cpp">
       <Filter>Source Files\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="LoginScene.cpp">
+      <Filter>Source Files\Scenes\Menus</Filter>
+    </ClCompile>
+    <ClCompile Include="HelpScene.cpp">
+      <Filter>Source Files\Scenes\Menus</Filter>
+    </ClCompile>
+    <ClCompile Include="MainMenuScene.cpp">
+      <Filter>Source Files\Scenes\Menus</Filter>
+    </ClCompile>
+    <ClCompile Include="ConquerScene.cpp">
+      <Filter>Source Files\Scenes\GamePlay</Filter>
+    </ClCompile>
+    <ClCompile Include="GameplayScene.cpp">
+      <Filter>Source Files\Scenes\GamePlay</Filter>
+    </ClCompile>
+    <ClCompile Include="CreateScene.cpp">
+      <Filter>Source Files\Scenes\Menus</Filter>
+    </ClCompile>
+    <ClCompile Include="Questions.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -98,19 +107,7 @@
     <ClInclude Include="Failure.hpp">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="CreateScene.hpp">
-      <Filter>Source Files\Scenes</Filter>
-    </ClInclude>
     <ClInclude Include="GameOptionsScene.hpp">
-      <Filter>Source Files\Scenes</Filter>
-    </ClInclude>
-    <ClInclude Include="MainMenuScene.hpp">
-      <Filter>Source Files\Scenes</Filter>
-    </ClInclude>
-    <ClInclude Include="LoginScene.hpp">
-      <Filter>Source Files\Scenes</Filter>
-    </ClInclude>
-    <ClInclude Include="HelpScene.hpp">
       <Filter>Source Files\Scenes</Filter>
     </ClInclude>
     <ClInclude Include="Datamgr.h">
@@ -131,12 +128,6 @@
     <ClInclude Include="Player.hpp">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="GameplayScene.hpp">
-      <Filter>Source Files\Scenes</Filter>
-    </ClInclude>
-    <ClInclude Include="ConquerScene.hpp">
-      <Filter>Source Files\Scenes</Filter>
-    </ClInclude>
     <ClInclude Include="Button.hpp">
       <Filter>Source Files\Managers\SubManagers\SingleObjects</Filter>
     </ClInclude>
@@ -146,8 +137,26 @@
     <ClInclude Include="RunningData.hpp">
       <Filter>Source Files\Managers</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ClassDiagram.cd" />
+    <ClInclude Include="LoginScene.hpp">
+      <Filter>Source Files\Scenes\Menus</Filter>
+    </ClInclude>
+    <ClInclude Include="HelpScene.hpp">
+      <Filter>Source Files\Scenes\Menus</Filter>
+    </ClInclude>
+    <ClInclude Include="MainMenuScene.hpp">
+      <Filter>Source Files\Scenes\Menus</Filter>
+    </ClInclude>
+    <ClInclude Include="ConquerScene.hpp">
+      <Filter>Source Files\Scenes\GamePlay</Filter>
+    </ClInclude>
+    <ClInclude Include="GameplayScene.hpp">
+      <Filter>Source Files\Scenes\GamePlay</Filter>
+    </ClInclude>
+    <ClInclude Include="CreateScene.hpp">
+      <Filter>Source Files\Scenes\Menus</Filter>
+    </ClInclude>
+    <ClInclude Include="Questions.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -7,6 +7,7 @@
 #include <string>
 #include "Failure.hpp"
 #include "InputManager.hpp"
+#include "RunningData.hpp"
 
 using std::string;
 

@@ -62,7 +62,11 @@ int Create::update(sf::RenderWindow &window)
 					p.password = passwordString;
 					DataManager d;
 					std::cout << (d.login_create(&p)==true? "Created\n" : "Error\n");
-					if (d.login_create(&p)){ return 4; }
+					if (d.login_create(&p)){
+						RunningData::getInstance()->PlayerName = usernameString;
+						RunningData::getInstance()->PlayerPassword = passwordString;
+						return OptionsScene;
+					}
 					//std::cout << "Create\n";
 					//TODO//
 				}

@@ -1,4 +1,5 @@
-﻿#ifndef Player_H
+﻿#pragma once
+#ifndef Player_H
 #define Player_H
 #include <SFML/Graphics.hpp>
 #include <iostream>
@@ -20,6 +21,8 @@ protected:
   int player_color;   //Color of player 0-Red, 1-Green
   bool lose;
 public:
+	void reInit(int score, int gold, int military, int siegeUnit, int cavalryUnit, int infantryUnit, int population, int land, int conqueorCount, int player_color); //for load game..
+
   int max_population; //Max people allowed
   int max_military;   //Max military allowed
 

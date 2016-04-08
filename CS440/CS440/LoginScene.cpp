@@ -65,7 +65,22 @@ int Login::update(sf::RenderWindow &window)
 					  std::cout << (d.login_check(&p) == true ? "LoggedIn\n" : "Error\n");
 
 					  bool check = (d.login_check(&p) == true ? 1 : 0);
-					  if (check){ return OptionsScene; }
+					  if (check){ 
+						  RunningData::getInstance()->PlayerName = usernameString;
+						  RunningData::getInstance()->PlayerPassword = passwordString;
+
+						  DataManager d;
+						  d.load_game(usernameString);
+						  RunningData::getInstance()->displayAll();
+						  if (RunningData::getInstance()->SelectedGameTime == 0){
+							  RunningData::getInstance()->reset();
+						  }
+						  else{
+							  return PlayGameScene;
+						  }
+
+						  return OptionsScene; 
+					  }
 
 
 				  }
