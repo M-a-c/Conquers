@@ -118,12 +118,15 @@ bool DataManager::load_game(std::string gameIdentifier)
 		string Ppass;
 
 		/*selected values*/
+		float SRtime = 0.0f;
+		float SGtime = 0.0f;
 		int Scolor = 0;
 		int Sera = 0;
 		int Unumber = 0;
 
 
 		/*current values*/
+		float CGtime = 0.0f;
 		int Qindex = 0;
 
 		int scr = 0;
