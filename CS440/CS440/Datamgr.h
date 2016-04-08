@@ -40,6 +40,9 @@ check if game save file extists
 #include <fstream>
 #include <direct.h>
 #include <string.h>
+#include "RunningData.hpp"
+#include <time.h>
+#include <sstream>
 
 /*Datamanager inherits debugger print(level, error message) 
 and debug(level, error message)
@@ -76,15 +79,15 @@ class DataManager: public Debug
 {
 public:
 	/*functions to manage the player structure nested within game structure*/
-  bool login_create(struct User * player);
-  bool login_check(struct User * player);
-  bool login_delete(struct User * player);
-  std::string login_read(struct User * player);
+	bool login_create(struct User * player);
+	bool login_check(struct User * player);
+	bool login_delete(struct User * player);
+	std::string login_read(struct User * player);
 
 	/*functions to manage game structure*/
-	bool save_game(struct Game * gamesave, std::string gameIdentifier);
+	bool saveRunningData(std::string gameIdentifier);
 	bool load_game(std::string gameIdentifier);
-	bool check_game(std::string gameIdentifier);
+	bool has_save(std::string gameIdentifier);
 
 protected:
 	/*please do not modify these*/
