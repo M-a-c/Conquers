@@ -32,7 +32,7 @@ public:
 
 	string WWII[4];
 	string AnswersWWII[4];
-	Answers AnswersWWII_Select[4];
+	int AnswersWWII_Select[4];
 
 
 	//The Roman Republic - Gallic Wars and The First Triumvirate - (59 BC - 30 BC)

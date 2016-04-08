@@ -101,7 +101,9 @@ bool DataManager::saveRunningData(std::string gameIdentifier)
 		write_data(gameIdentifier + ".sav", std::to_string(rD->Ai_maxMilitary));
 		write_data(gameIdentifier + ".sav", std::to_string(rD->Ai_maxPopulaiton));
 		write_data(gameIdentifier + ".sav", std::to_string(rD->Ai_military));//combo of units
-		write_data(gameIdentifier + ".sav", std::to_string(rD->Ai_cavalryUnit) + "\n");
+		write_data(gameIdentifier + ".sav", std::to_string(rD->Ai_cavalryUnit));
+
+		write_data(gameIdentifier + ".sav", (rD->mapFile) + "\n");
 
 
 		return true;
@@ -159,7 +161,8 @@ bool DataManager::load_game(std::string gameIdentifier)
 		int AimaxPop = 0;
 		int Aimil = 0;
 		int AicavUnit = 0;
-
+		
+		string mapfile = "wwww";
 		//.txt will be read into fromFile
 		std::string fromFile;
 
@@ -168,9 +171,10 @@ bool DataManager::load_game(std::string gameIdentifier)
 
 		//associate input stream with game data file
 		dataIn.open(gameIdentifier + ".sav");
-		dataIn >> Pname >> Ppass >> SRtime >> SGtime >> Scolor >> Sera >> Unumber >> CGtime >> Qindex >> scr >> gld >> pop >> lnd >> Concount;
-		dataIn >> clr >> Sunit >> Cavunit >> infUnit >> maxMil >> maxPop >> turnCnt >> Aiscore >> Aigold >> Aipop >> Ailnd >> AicCount;
-		dataIn >> Aicolor >> AisiegeUnit >> AimaxPop >> Aimil >> AicavUnit;
+		dataIn >> Pname >> Ppass >> SRtime >> SGtime >> Scolor >> Sera >> Unumber >> CGtime >> Qindex;
+		dataIn >> scr >> gld >> pop >> lnd >> Concount >> clr >> Sunit >> Cavunit >> infUnit >> maxMil >> maxPop >> mil >> turnCnt;
+		dataIn >> Aiscore >> Aigold >> Aipop >> Ailnd >> AicCount >> Aicolor >> AisiegeUnit >> AicavalryUnit >> AiinfantryUnit >> AimaxMilitary >> AimaxPop >> Aimil >> AicavUnit;
+		dataIn >> mapfile;
 		dataIn.close();
 
 		std::cout << "reading from file." << std::endl;
@@ -217,6 +221,8 @@ bool DataManager::load_game(std::string gameIdentifier)
 		rD->Ai_maxPopulaiton = AimaxPop;
 		rD->Ai_military = Aimil;
 		rD->Ai_cavalryUnit = AicavUnit;
+
+		rD->mapFile = mapfile;
 
 		return true;
 	}

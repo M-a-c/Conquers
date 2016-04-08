@@ -4,6 +4,7 @@
 #include "Scenes.cpp"
 #include "Button.hpp"
 #include "inputManager.hpp"
+#include "RunningData.hpp"
 
 
 class MainMenu : public Scene

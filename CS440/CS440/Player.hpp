@@ -41,6 +41,10 @@ public:
   bool removeGold(int amt);     //remove gold amt
   void initUnits(int value);    //Give number then initialize
 
+  void AddConqueorCount(){ conqueorCount++;};  //How many empires desotryed
+  int setConqueorCount(int c){ conqueorCount = c; };  //How many empires desotryed
+  int getConqueorCount(){ return conqueorCount; };  //How many empires desotryed
+
   //Population Function
   int getPopluation(){ return population; };    //get population
   bool addPopulation();                         //add 1 Population

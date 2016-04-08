@@ -9,8 +9,6 @@ Create::Create(sf::RenderWindow &window, int &re_val)
     (float)window.getSize().y);
 
 
-
-
   EnteringPassword = false;
   selectedItem = 0;                           //Selected item index
 
@@ -61,11 +59,17 @@ int Create::update(sf::RenderWindow &window)
 					p.name = usernameString;
 					p.password = passwordString;
 					DataManager d;
-					std::cout << (d.login_create(&p)==true? "Created\n" : "Error\n");
-					if (d.login_create(&p)){
-						RunningData::getInstance()->PlayerName = usernameString;
-						RunningData::getInstance()->PlayerPassword = passwordString;
-						return OptionsScene;
+					//std::cout << (d.login_create(&p) == false? "Created\n" : "Error\n");
+
+					//std::cout << (d.login_check(&p) == false ? "LoggedIn\n" : "Error\n");
+
+					bool check = (d.login_check(&p) == true ? 1 : 0);
+					if (!check){
+						if (d.login_create(&p)){
+							RunningData::getInstance()->PlayerName = usernameString;
+							RunningData::getInstance()->PlayerPassword = passwordString;
+							return OptionsScene;
+						}
 					}
 					//std::cout << "Create\n";
 					//TODO//

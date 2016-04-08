@@ -72,8 +72,9 @@ int Login::update(sf::RenderWindow &window)
 						  DataManager d;
 						  d.load_game(usernameString);
 						  RunningData::getInstance()->displayAll();
-						  if (RunningData::getInstance()->SelectedGameTime == 0){
+						  if (RunningData::getInstance()->maxPopulaiton == 0){
 							  RunningData::getInstance()->reset();
+							  std::cout << "reset in login\n";
 						  }
 						  else{
 							  return PlayGameScene;

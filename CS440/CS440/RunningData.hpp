@@ -66,6 +66,8 @@ public:
 	int Ai_maxPopulaiton;
 	int Ai_military;//combo of units
 
+	string mapFile;
+
 
 	// if(RunningData.)
 

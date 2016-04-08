@@ -17,6 +17,8 @@ MainMenu::MainMenu(sf::RenderWindow &window,int &re_val)
   ButtonManager::getInstance()->addButton(new Button(HelpScene, "Help", "images/b_help.png", sf::IntRect(0, 0, 180, 60), sf::Vector2f((width / 2) - (180 / 2), (height / 2) + 140))) ;
   ButtonManager::getInstance()->addButton(new Button(Exit, "Exit", "images/b_exit.png", sf::IntRect(0, 0, 180, 60), sf::Vector2f((width / 2) - (180 / 2), (height / 2) + 210))) ;
 
+  RunningData::getInstance()->reset();
+
   re_val = update(window);                    //update loop with return value
   return;                                     //return from MainMenu
 }

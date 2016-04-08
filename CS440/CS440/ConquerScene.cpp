@@ -11,6 +11,21 @@ Conquer::Conquer(sf::RenderWindow &window,Player &player1,Ai &player2)
   //Set sections and other info
   x = window.getSize().x;
   y = window.getSize().y;
+  q = 0;
+
+
+  if (RunningData::getInstance()->mapFile[0] != 'w'){ q = 1; }
+  if (RunningData::getInstance()->mapFile[1] != 'w'){ q = 2; }
+  if (RunningData::getInstance()->mapFile[2] != 'w'){ q = 3; }
+  if (RunningData::getInstance()->mapFile[3] != 'w'){ q = 0; 
+	  //Reset so we dont break the game :d
+  RunningData::getInstance()->mapFile[0] = 'w';
+  RunningData::getInstance()->mapFile[1] = 'w';
+  RunningData::getInstance()->mapFile[2] = 'w';
+  RunningData::getInstance()->mapFile[3] = 'w';
+  }
+
+
   part = 1;
   winner = 0;
   p1 = &player1;
@@ -144,8 +159,46 @@ void Conquer::mouseHoverEvent(sf::Event event)
 //TODO need more button actions like retreat going back to gameplay and optiosn
 void Conquer::clickEvents()
 {
-  if (a.mouseClicked())
-    part = 2;
+
+	if (a.mouseClicked()){
+		if ((RunningData::getInstance()->SelectedEra == 1) && Questions::getInstance()->AnswersWWII_Select[q] == (Questions::getInstance()->A)){
+			part = 2;
+		}
+		else if ((RunningData::getInstance()->SelectedEra == 2) && Questions::getInstance()->AnswersRoman_Select[q] == (Questions::getInstance()->A)){
+			part = 2;
+		}
+		else{
+			//Incorrect Answer
+			part = 3;
+		}
+	}
+	else if (b.mouseClicked()){
+		if ((RunningData::getInstance()->SelectedEra == 1) && Questions::getInstance()->AnswersWWII_Select[q] == (Questions::getInstance()->B)){
+			part = 2;
+		}
+		else if ((RunningData::getInstance()->SelectedEra == 2) && Questions::getInstance()->AnswersRoman_Select[q] == (Questions::getInstance()->B)){
+			part = 2;
+		}
+		else{
+			//Incorrect Answer
+			part = 3;
+		}
+	}
+	else if (c.mouseClicked()){
+		if ((RunningData::getInstance()->SelectedEra == 1) && Questions::getInstance()->AnswersWWII_Select[q] == (Questions::getInstance()->C)){
+			part = 2;
+		}
+		else if ((RunningData::getInstance()->SelectedEra == 2) && Questions::getInstance()->AnswersRoman_Select[q] == (Questions::getInstance()->C)){
+			part = 2;
+		}
+		else{
+			//Incorrect Answer
+			part = 3;
+		}
+	}
+	else{
+	
+	}
   if (back.mouseClicked())
     end = true;
   if (attack.mouseClicked())
@@ -168,9 +221,15 @@ void Conquer::setScreen()
     loadStory();
 
     //Test delete below
-    story.setString("Life a bitch");
-    question.setString("Click A");
-    //
+		if (RunningData::getInstance()->SelectedEra == 1){
+			story.setString(Questions::getInstance()->WWII[q] );
+			question.setString(Questions::getInstance()->AnswersWWII[q]);
+		}
+		if (RunningData::getInstance()->SelectedEra == 2){
+			story.setString(Questions::getInstance()->Roman[q]);
+			question.setString(Questions::getInstance()->AnswersRoman[q]);
+		}
+		//
 
   }
   else if (part == 2 )
@@ -182,13 +241,20 @@ void Conquer::setScreen()
     retreat.setPosition(sf::Vector2f(x-300, y - 150));
     stats.setPosition(sf::Vector2f(10, 20));
   }
+  else if (part == 3){
+	  stats.setString("Wrong Answer, You loose 25 gold");
+	  back.setPosition(sf::Vector2f(100, y - 150));
+	  wrong();
+  }
   else
   {
-    back.setPosition(sf::Vector2f(100, y - 150));
-    if (winner == 1)
-      stats.setString("You Won");
-    else
-      stats.setString("You Lose");
+	  back.setPosition(sf::Vector2f(100, y - 150));
+	  if (winner == 1){
+		  stats.setString("You Won");
+	  }
+	  else{
+		  stats.setString("You Lose");
+	  }
   }
 }
 
@@ -210,6 +276,12 @@ void Conquer::drawButtons(sf::RenderWindow &window)
     window.draw(retreat);
     window.draw(label);
     window.draw(stats);
+  }
+  else if (part == 3)
+  {
+	  window.draw(stats);
+	  window.draw(back);
+
   }
   else
   {
@@ -244,15 +316,35 @@ string Conquer::getStats()
 
 void Conquer::battle()
 {
-  part = 3;
+  part = -1;
+  RunningData::getInstance()->displayAll();
   //Checks who has bigger army
   if ((*p1).getMilitaryUnits() >= (*p2).getMilitaryUnits())
   {
     winner = 1; //Player wins
+	if (RunningData::getInstance()->SelectedColor == 1){
+		std::cout << "__--++ G: "<<q;
+		RunningData::getInstance()->mapFile[q] = 'g';
+	}
+	if (RunningData::getInstance()->SelectedColor == 2)
+	{
+		RunningData::getInstance()->mapFile[q] = 'r';
+		std::cout << "__--++ R: "<<q;
+	}
+
   }
   else
   {
     winner = 2; //Ai wins
+	if (RunningData::getInstance()->SelectedColor == 1){
+		RunningData::getInstance()->mapFile[q] = 'r';
+		std::cout << "__--++ R: "<< q;
+	}
+	if (RunningData::getInstance()->SelectedColor == 2)
+	{
+		RunningData::getInstance()->mapFile[q] = 'g';
+		std::cout << "__--++ G: " << q;
+	}
   }
 
   //Reward winner punish loser
@@ -289,4 +381,18 @@ void Conquer::battle()
     (*p1).removeSiegeUnit(6);
   }
 
+}
+
+void Conquer::wrong(){
+	(*p1).removeGold(25);//A slap on the wrist.
+
+	if (RunningData::getInstance()->SelectedColor == 1){
+		RunningData::getInstance()->mapFile[q] = 'r';
+		std::cout << "__--++ R: " << q;
+	}
+	if (RunningData::getInstance()->SelectedColor == 2)
+	{
+		RunningData::getInstance()->mapFile[q] = 'g';
+		std::cout << "__--++ G: " << q;
+	}
 }

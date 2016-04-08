@@ -79,6 +79,7 @@ int GameOptions::update(sf::RenderWindow &window)
 			RunningData::getInstance()->SelectedUnitNumber = selectedUnits;
 
 			RunningData::getInstance()->displayAll();
+			RunningData::getInstance()->save();
 
             return PlayGameScene;
           }

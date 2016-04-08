@@ -16,14 +16,25 @@ Gameplay::Gameplay(sf::RenderWindow &window,int &re_val)
     getImage((float)window.getSize().x,       //Load images
       (float)window.getSize().y);
 
-	if (RunningData::getInstance()->SelectedGameTime == 0){
-		
+	if (RunningData::getInstance()->maxMilitary == 0){
+		std::cout << "*******************";
 	}
 	else{
 		loadGame();
-	
 	}
 
+	if (RunningData::getInstance()->SelectedEra == 1){
+		if (!BgTextuer.loadFromFile("images/WWII/" + RunningData::getInstance()->mapFile + ".jpg", sf::IntRect(0, 0, 1366, 768)))
+			imageFail_important("images/WWII/" + RunningData::getInstance()->mapFile + ".jpg");
+	}
+	if (RunningData::getInstance()->SelectedEra == 2){
+		if (!BgTextuer.loadFromFile("images/Roman/" + RunningData::getInstance()->mapFile + ".jpg", sf::IntRect(0, 0, 1366, 768)))
+			imageFail_important("images/Roman/" + RunningData::getInstance()->mapFile + ".jpg");
+	}
+
+	BgSprite.setTexture(BgTextuer);
+	BgSprite.setScale(0.8f, 0.8f);
+	BgSprite.setPosition(200, 0);
 
     re_val = update(window);                  //update and next scene
     return;
@@ -45,7 +56,7 @@ Gameplay::~Gameplay()
 
 void Gameplay::draw(sf::RenderWindow &window)
 {
-  
+  window.draw(BgSprite);
   window.draw(score);
   window.draw(time);
   //Drawing non attack buttons
@@ -274,6 +285,18 @@ int Gameplay::clickEvents(sf::RenderWindow &window)
   {
 	  saveGame();
 	  Conquer conquer(window,player1,player2);
+	 
+	  if (RunningData::getInstance()->SelectedEra == 1){
+		  if (!BgTextuer.loadFromFile("images/WWII/" + RunningData::getInstance()->mapFile + ".jpg", sf::IntRect(0, 0, 1366, 768)))
+			  imageFail_important("images/WWII/" + RunningData::getInstance()->mapFile + ".jpg");
+	  }
+	  if (RunningData::getInstance()->SelectedEra == 2){
+		  if (!BgTextuer.loadFromFile("images/Roman/" + RunningData::getInstance()->mapFile + ".jpg", sf::IntRect(0, 0, 1366, 768)))
+			  imageFail_important("images/Roman/" + RunningData::getInstance()->mapFile + ".jpg");
+	  }
+
+	  BgSprite.setTexture(BgTextuer);
+
    //Conquer mode 
   }
 
@@ -314,6 +337,7 @@ void Gameplay::updateStats()
 //Drawing buttons referenced by draw function
 void Gameplay::drawButtons(sf::RenderWindow &window)
 {
+
   window.draw(increasePopulation);
   window.draw(increaseInfantry);
   window.draw(increaseCavalry);
@@ -393,7 +417,7 @@ void Gameplay::saveGame(){
 		r->gold = player1.getGold();
 		r->population = player1.getPopluation();
 		r->land = player1.getLand();
-		//r->conquerCount = player1.conquer
+		r->conquerCount = player1.getConqueorCount();
 		r->color = player1.getColor();
 		r->siegeUnit = player1.getSiegeUnits();
 		r->cavalryUnit = player1.getCavalryUnits();
@@ -409,7 +433,7 @@ void Gameplay::saveGame(){
 		r->Ai_gold = player2.getGold();
 		r->Ai_population = player2.getPopluation();
 		r->Ai_land = player2.getLand();
-		//r->Ai_conquerCount = player2.conquer
+		r->Ai_conquerCount = player2.getConqueorCount();
 		r->Ai_color = player2.getColor();
 		r->Ai_siegeUnit = player2.getSiegeUnits();
 		r->Ai_cavalryUnit = player2.getCavalryUnits();
@@ -429,12 +453,12 @@ void Gameplay::loadGame(){
 
 	RunningData * r = RunningData::getInstance();
 
-
+	Questions::getInstance()->setQuestion(0);
+	Questions::getInstance()->Era = r->SelectedEra;
 	TempTime = r->currentGameTime;
 
-	//int questionIndex = 0//FIX
-
 	player1.reInit(r->score,r->gold,r->military,r->siegeUnit,r->cavalryUnit,r->infantryUnit,r->population,r->land,r->conquerCount,r->color);
+	std::cout << "\n******************************************************" << r->Ai_color<<"********************************\n";
 	player2.reInit(r->Ai_score, r->Ai_gold, r->Ai_military, r->Ai_siegeUnit, r->Ai_cavalryUnit, r->Ai_infantryUnit, r->Ai_population, r->Ai_land, r->Ai_conquerCount, r->Ai_color);
 
 

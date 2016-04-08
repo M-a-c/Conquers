@@ -9,45 +9,46 @@ void RunningData::save(){
 
 void RunningData::reset(){
 
+	SelectedRoundTime = 0.0f;
+	SelectedGameTime = 0.0f;
+	SelectedColor = 0;
+	SelectedEra = 0;
+	SelectedUnitNumber = 0;
 
-	float SelectedRoundTime = 0.0f;
-	float SelectedGameTime = 0.0f;
-	int SelectedColor = 0;
-	int SelectedEra = 0;
-	int SelectedUnitNumber = 0;
+	currentGameTime = 0.0f;
 
-	float currentGameTime = 0.0f;
+	questionIndex = 0;
 
-	int questionIndex = 0;
+	score = 0;
+	gold = 0;
+	population = 0;
+	land = 0;
+	conquerCount = 0;
+	color = 0;
+	siegeUnit = 0;
+	cavalryUnit = 0;
+	infantryUnit = 0;
+	maxMilitary = 0;
+	maxPopulaiton = 0;
+	military = 0;//combo of units
+	turnCounter = 0;
+	PlayerName = "";
+	PlayerPassword = "";
 
-	int score = 0;
-	int gold = 0;
-	int population = 0;
-	int land = 0;
-	int conquerCount = 0;
-	int color = 0;
-	int siegeUnit = 0;
-	int cavalryUnit = 0;
-	int infantryUnit = 0;
-	int maxMilitary = 0;
-	int maxPopulaiton = 0;
-	int military = 0;//combo of units
-	bool turnCounter = 0;
-	string PlayerName = "";
-	string PlayerPassword = "";
+	Ai_score = 0;
+	Ai_gold = 0;
+	Ai_population = 0;
+	Ai_land = 0;
+	Ai_conquerCount = 0;
+	Ai_color = 0;
+	Ai_siegeUnit = 0;
+	Ai_cavalryUnit = 0;
+	Ai_infantryUnit = 0;
+	Ai_maxMilitary = 0;
+	Ai_maxPopulaiton = 0;
+	Ai_military = 0;//combo of units
 
-	int Ai_score = 0;
-	int Ai_gold = 0;
-	int Ai_population = 0;
-	int Ai_land = 0;
-	int Ai_conquerCount = 0;
-	int Ai_color = 0;
-	int Ai_siegeUnit = 0;
-	int Ai_cavalryUnit = 0;
-	int Ai_infantryUnit = 0;
-	int Ai_maxMilitary = 0;
-	int Ai_maxPopulaiton = 0;
-	int Ai_military = 0;//combo of units
+	mapFile = "wwww";
 
 }
 
@@ -87,5 +88,6 @@ void RunningData::displayAll(){
 	std::cout << "int Ai_maxMilitary: " << Ai_maxMilitary << std::endl;
 	std::cout << "int Ai_maxPopulaiton: " << Ai_maxPopulaiton << std::endl;
 	std::cout << "int Ai_military: " << Ai_military << std::endl;
+	std::cout << "string mapFile: " << mapFile << std::endl;
 
 }

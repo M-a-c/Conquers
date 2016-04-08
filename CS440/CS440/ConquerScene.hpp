@@ -8,6 +8,7 @@
 #include "Player.hpp"
 #include "Ai.hpp"
 #include "RunningData.hpp"
+#include "Questions.hpp"
 
 class Conquer : public Scene
 {
@@ -19,6 +20,7 @@ public:
 private:
 
   //1 - Story //2 - Attack or un //3 - Win or loss
+  int q;
   int part;//Which sections  
   int x, y;//Width,height
   int numCorrect;//Questions answered correctly
@@ -68,4 +70,7 @@ private:
   //Gameplay
   string getStats();                            //returns stats based on questions answered correctly
   void battle();                                //Battle logic
+  void wrong();									//When the user gets something wrong.
+
+
 };

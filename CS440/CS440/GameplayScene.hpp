@@ -28,6 +28,9 @@ private:
   sf::Sprite icons[7];      //Icons
   sf::Text iconVal[7];      //Icon values as text
 
+  sf::Sprite BgSprite;	    //the bakground Map
+  sf::Texture BgTextuer;    //The background Map
+
   Button attack;            //Button to attack
   Button endTurn_button;    //Button to end turn
   Button increasePopulation;//Button to increase population

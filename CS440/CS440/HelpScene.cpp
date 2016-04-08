@@ -12,7 +12,7 @@ Help::Help(sf::RenderWindow &window, int &re_val)
   float height = (float)window.getSize().y;
 
   ButtonManager::getInstance()->addButton(new Button(None, "Back", "images/b_back.png", sf::IntRect(0, 0, 180, 60), sf::Vector2f((width / 4) - (180 / 2), (height / 8) * 6)));
-  ButtonManager::getInstance()->addButton(new Button(CreateScene, "Create", "images/b_next.png", sf::IntRect(0, 0, 180, 60), sf::Vector2f(((width / 4) * 3) - (180 / 2), (height / 8) * 6)));
+  //ButtonManager::getInstance()->addButton(new Button(CreateScene, "Create", "images/b_next.png", sf::IntRect(0, 0, 180, 60), sf::Vector2f(((width / 4) * 3) - (180 / 2), (height / 8) * 6)));
 
   //Loading Font
   if (!font.loadFromFile("arial.ttf"))
