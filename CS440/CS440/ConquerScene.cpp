@@ -85,7 +85,6 @@ int Conquer::update(sf::RenderWindow &window)
     //Return to gmaeplay
     if (end == true)
       return 0 ;
-
   }
   return 0;
 }
@@ -203,6 +202,8 @@ void Conquer::clickEvents()
     end = true;
   if (attack.mouseClicked())
     battle();
+  if (retreat.mouseClicked())
+	  end = true;
 
 }
 

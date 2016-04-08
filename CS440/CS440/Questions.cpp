@@ -41,23 +41,23 @@ victory. Winter set in, and Germany suffered a crippling defeat at the hands of 
 Army, and Operation Barbarossa was all but over.";
 
 	AnswersWWII[0] = "\
-A.Ground, 1941, Food, Shelter\
-B.Aerial, 1943, Money, Women\
+A.Ground, 1941, Food, Shelter\n\
+B.Aerial, 1943, Money, Women\n\
 C.Naval, 1945, Supplies, Technology";
 
 	AnswersWWII[1] = "\
-A.Cayman Islands, French, Grand, Yemen\
-B.Netherlands, Italians, Maginot, Paris\
+A.Cayman Islands, French, Grand, Yemen\n\
+B.Netherlands, Italians, Maginot, Paris\n\
 C.Netherlands, Russians, Maginot, Marseille";
 
 	AnswersWWII[2] = "\
-A.Winston Churchill, Drop, Royal Air Force, Northern\
-B.Winston Churchill, Blitz, Royal Air Force, Eastern\
-C.John Lennon, Drop, Royal Navy, Cold, FALSE";
+A.Winston Churchill, Drop, Royal Air Force, Northern\n\
+B.Winston Churchill, Blitz, Royal Air Force, Eastern\n\
+C.John Lennon, Drop, Royal Navy, Cold, FALSE\n";
 
 	AnswersWWII[3] = "\
-A.Volga, Joseph Stalin, 90 \
-B.Mississippi, Vladimir Putin, 33, Red Ribbon\
+A.Volga, Joseph Stalin, 90\n \
+B.Mississippi, Vladimir Putin, 33, Red Ribbon\n\
 C.Volga, Joseph Stalin, 75, Red";
 
 	AnswersWWII_Select[0] = C;
@@ -106,25 +106,25 @@ and the Roman _____ was born.";
 
 
 	AnswersRoman[0] = "\
-A: Rod Blagojevic, Star, Helvetti, Tigurini \
-B: Augustus, Gallic, Helvetti, Tigurini\
-C: Julius Caesar, Gallic, Helvetti, Tigurini";
+A: Rod Blagojevic, Star, Helvetti, Tigurini\n\
+B: Augustus, Gallic, Helvetti, Tigurini\n\
+C: Julius Caesar, Gallic, Helvetti, Tigurini\n";
 
 	AnswersRoman[1] = "\
-A: Alexander, Ammendment, Galactic \
-B: Pompey, Triumvirate, Parthian\
-C: Bernie Sanders, Triumvirate, Chinese";
+A: Alexander, Ammendment, Galactic\n\
+B: Pompey, Triumvirate, Parthian\n\
+C: Bernie Sanders, Triumvirate, Chinese\n";
 
 	AnswersRoman[2] = "\
-A: Rubicon, Civil, Iberia \
-B: Rubix Cube, Star, Pompe\
+A: Rubicon, Civil, Iberia\n\
+B: Rubix Cube, Star, Pompe\n\
 C: Nile River, Civil, Iberia";
 
 	AnswersRoman[3] = "\
 A: Powerpuff Girls, Gaius Octavian, Mark Anthony, Catholic\
-Church\
-B: Justice League, Doctor Octopus, Mark Antony, Empire\
-C: Liberators, Gaius Octavian, Mark Antony, Empire ";
+Church\n\
+B: Justice League, Doctor Octopus, Mark Antony, Empire\n\
+C: Liberators, Gaius Octavian, Mark Antony, Empire";
 
 	AnswersRoman_Select[0] = C;
 	AnswersRoman_Select[1] = B;

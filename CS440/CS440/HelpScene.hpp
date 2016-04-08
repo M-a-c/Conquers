@@ -30,6 +30,7 @@ private:
 
   //Text
   string text;
+  string text2;
   sf::Font font;
   sf::Text message;
 
