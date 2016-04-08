@@ -17,7 +17,14 @@ public:
   ~Conquer();
 private:
 
-  int part;       //Story(1) or battle(2)
+  //1 - Story //2 - Attack or un //3 - Win or loss
+  int part;//Which sections  
+  int x, y;//Width,height
+  int numCorrect;//Questions answered correctly
+  int winner;
+  Player* p1;
+  Ai* p2;
+  bool end;       //Should it return to gameplay
 
   sf::Font font;  //Font
 
@@ -29,6 +36,7 @@ private:
   Button c;
   Button retreat;
   Button attack;
+  Button back;
   sf::Sprite label;
 
   //Story
@@ -46,7 +54,7 @@ private:
   void draw(sf::RenderWindow &window);          //Drawing onto screen
   int update(sf::RenderWindow &window);         //Updating status
   void getImage(float width, float height);     //Getting images
-  void drawButtons(sf::RenderWindow &window,int index);   //Drawing buttons
+  void drawButtons(sf::RenderWindow &window);   //Drawing buttons
 
   //Events
   void mouseHoverEvent(sf::Event);              //Mouse is hover over buttons
@@ -54,10 +62,9 @@ private:
   
   //Load
   void loadStory();                             //Load story from file
+  void setScreen();                             //Set up screen to draw
 
   //Gameplay
-  void battle();                                //Battle
-  void rewardWinner();                          //Reward winner of battle
-
-
+  string getStats();                            //returns stats based on questions answered correctly
+  void battle();                                //Battle logic
 };

@@ -1,3 +1,5 @@
+#ifndef AI_H
+#define AI_H
 #include "Player.hpp"
 
 class Ai :public Player
@@ -12,3 +14,4 @@ public:
 private:
   sf::Clock roundTime;
 };
+#endif

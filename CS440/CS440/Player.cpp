@@ -171,3 +171,49 @@ bool Player::addSiegeUnits()
   military++;
   return true;
 }
+
+
+//Removing Siege unit
+void Player::removeSiegeUnit(int amt)
+{
+  siegeUnit = siegeUnit - amt;
+  military = military - amt;
+
+  if (siegeUnit < 0)
+  {
+    int rem = abs(siegeUnit);
+    siegeUnit = 0;
+    military = military + rem;
+  }
+   
+}
+
+
+//Remove infantry unit
+void Player::removeInfantryUnit(int amt)
+{
+  infantryUnit = infantryUnit - amt;
+  military = military - amt;
+
+  if (infantryUnit < 0)
+  {
+    int rem = abs(infantryUnit);
+    infantryUnit = 0;
+    military = military + rem;
+  }
+}
+
+
+//Remove cavalry unit
+void Player::removeCavalryUnit(int amt)
+{
+  cavalryUnit = siegeUnit - amt;
+  military = military - amt;
+
+  if (cavalryUnit < 0)
+  {
+    int rem = abs(cavalryUnit);
+    cavalryUnit = 0;
+    military = military + rem;
+  }
+}
