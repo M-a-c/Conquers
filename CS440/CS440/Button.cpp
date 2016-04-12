@@ -97,7 +97,8 @@ void Button::animateUp()
   if (playOnce == false)  //Play sound
     sound_hover.play();
 
-  setScale(1.15f, 1.15f);
+  //1.15f -> 1.05
+  setScale(1.05f, 1.05f);
 
   playOnce = true;
 }

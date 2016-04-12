@@ -170,9 +170,9 @@ void GameOptions::getImage(float width, float height)
 
   //Play and back button
   opButton[0].setTexture(texture[18]);
-  opButton[0].setPosition(sf::Vector2f((width / 12)*10 - (180 / 2)+80, (height / 4)));
+  opButton[0].setPosition(sf::Vector2f((width / 12)*10 - (180 / 2)+20, (height / 4)));
   opButton[1].setTexture(texture[19]);
-  opButton[1].setPosition(sf::Vector2f((width / 12) * 10 - (180 / 2) + 80, (height / 4) * 2));
+  opButton[1].setPosition(sf::Vector2f((width / 12) * 10 - (180 / 2) + 20, (height / 4) * 2));
   
   //Prompts
   prompt[0].setTexture(texture[2]);

@@ -5,8 +5,10 @@ Gameplay::Gameplay(sf::RenderWindow &window,int &re_val)
   //Setting game variables
   name = "Gameplay";                          
   userTurn = true;
-  
 
+  ///NEW CHANGES///
+  canConquer = true;
+  
   TempTime = 0;
  
   //New game
@@ -59,6 +61,7 @@ void Gameplay::draw(sf::RenderWindow &window)
   window.draw(BgSprite);
   window.draw(score);
   window.draw(time);
+  window.draw(totalTime);
   //Drawing non attack buttons
 
   for (int i = 0; i < 7; i++)
@@ -67,6 +70,9 @@ void Gameplay::draw(sf::RenderWindow &window)
     window.draw(iconVal[i]);
   }
   drawButtons(window);
+
+  if (userTurn == false)
+    window.draw(icons[7]);
   
 
 }
@@ -129,17 +135,23 @@ void Gameplay::getImage(float width, float height)
   }
   else
   {
-    //username lable
+    //Score lable
     score.setFont(font);
     score.setColor(sf::Color::White);
     score.setString("Score:");
-    score.setPosition(10, 10);
+    score.setPosition(5, 10);
 
-    //password label
+    //Time label
     time.setFont(font);
     time.setColor(sf::Color::White);
     time.setString("Time:");
-    time.setPosition(10, 45);
+    time.setPosition(5, 45);
+
+    //Time label
+    totalTime.setFont(font);
+    totalTime.setColor(sf::Color::White);
+    totalTime.setString("Game Time:");
+    totalTime.setPosition(5, 80);
 
     for (int i = 0; i < 7; i++)
     {
@@ -158,9 +170,9 @@ void Gameplay::getImage(float width, float height)
     imageFail_important("images/population.png");
   if (!texture[3].loadFromFile("images/infan_unit.png", sf::IntRect(0, 0, 48, 48)))
     imageFail_important("images/infan_unit.png");
-  if (!texture[4].loadFromFile("images/seige_unit.png", sf::IntRect(0, 0, 48, 48)))
+  if (!texture[5].loadFromFile("images/seige_unit.png", sf::IntRect(0, 0, 48, 48)))
     imageFail_important("images/seige_unit.png");
-  if (!texture[5].loadFromFile("images/cav_unit.png", sf::IntRect(0, 0, 48, 48)))
+  if (!texture[4].loadFromFile("images/cav_unit.png", sf::IntRect(0, 0, 48, 48)))
     imageFail_important("images/cav_unit.png");
   if (!texture[6].loadFromFile("images/mili_unit.png", sf::IntRect(0, 0, 48, 48)))
     imageFail_important("images/mili_unit.png");
@@ -179,6 +191,8 @@ void Gameplay::getImage(float width, float height)
     imageFail_important("images/end_turn.png");
   if (!texture[13].loadFromFile("images/save_exit.png", sf::IntRect(0, 0, 130, 40)))
     imageFail_important("images/save_exit.png");
+  if (!texture[14].loadFromFile("images/player2.png", sf::IntRect(0, 0, 180, 60)))
+    imageFail_important("images/player2.png");
 
   icons[0].setTexture(texture[0]);
   icons[1].setTexture(texture[1]);
@@ -187,6 +201,7 @@ void Gameplay::getImage(float width, float height)
   icons[4].setTexture(texture[4]);
   icons[5].setTexture(texture[5]);
   icons[6].setTexture(texture[6]);
+  icons[7].setTexture(texture[14]);
 
   attack.setTexture(texture[11]);
   endTurn_button.setTexture(texture[12]);
@@ -203,6 +218,7 @@ void Gameplay::getImage(float width, float height)
   icons[4].setPosition(sf::Vector2f(10, (height / 10)*6 ));
   icons[5].setPosition(sf::Vector2f(10, (height / 10)*7 ));
   icons[6].setPosition(sf::Vector2f(10, (height / 10)*8 ));
+  icons[7].setPosition(sf::Vector2f(width/2-90,height/2-30));
 
   increasePopulation.setPosition(sf::Vector2f(10, height - 60));
   increaseInfantry.setPosition(sf::Vector2f(183, height - 60));
@@ -221,10 +237,11 @@ void Gameplay::mouseHoverEvent(sf::Event event)
   increaseInfantry.checkHover(event.mouseMove.x, event.mouseMove.y);
   increaseCavalry.checkHover(event.mouseMove.x, event.mouseMove.y);
   increaseSeige.checkHover(event.mouseMove.x, event.mouseMove.y);
-  attack.checkHover(event.mouseMove.x, event.mouseMove.y);
   endTurn_button.checkHover(event.mouseMove.x, event.mouseMove.y);
   menu.checkHover(event.mouseMove.x, event.mouseMove.y);
-  
+  ///NEW CHANGES///
+  if (canConquer)
+    attack.checkHover(event.mouseMove.x, event.mouseMove.y);
 }
 
 
@@ -280,8 +297,8 @@ int Gameplay::clickEvents(sf::RenderWindow &window)
     }
   }
 
-  //TODO//
-  else if (attack.mouseClicked())
+  ///NEW CHANGES///
+  else if (attack.mouseClicked() && canConquer)
   {
 	  saveGame();
 	  Conquer conquer(window,player1,player2);
@@ -294,8 +311,11 @@ int Gameplay::clickEvents(sf::RenderWindow &window)
 		  if (!BgTextuer.loadFromFile("images/Roman/" + RunningData::getInstance()->mapFile + ".jpg", sf::IntRect(0, 0, 1366, 768)))
 			  imageFail_important("images/Roman/" + RunningData::getInstance()->mapFile + ".jpg");
 	  }
-
+  
 	  BgSprite.setTexture(BgTextuer);
+
+    ///NEW CHANGES///
+    canConquer = false;
 
    //Conquer mode 
   }
@@ -304,6 +324,8 @@ int Gameplay::clickEvents(sf::RenderWindow &window)
   else if (endTurn_button.mouseClicked())
   {
     endTurn();
+    ///NEW CHANGES///
+    canConquer = true;
   }
 
   //Save and exit clicked
@@ -331,9 +353,9 @@ void Gameplay::updateStats()
   iconVal[5].setString(to_string(player1.getSiegeUnits()));
   iconVal[6].setString(to_string(player1.getMilitaryUnits()) + " / " + to_string(player1.max_military));
   score.setString("Score:"+to_string(player1.getScore()));
-  time.setString("Time:" + to_string((int)roundTime.getElapsedTime().asSeconds()) + "/" + to_string((int)(gameTimer.getElapsedTime().asSeconds()+ TempTime)));
+  time.setString("Round:" + to_string((int)roundTime.getElapsedTime().asSeconds()) );
+  totalTime.setString("Game: " + to_string((int)(gameTimer.getElapsedTime().asSeconds() + TempTime)));
 }
-
 //Drawing buttons referenced by draw function
 void Gameplay::drawButtons(sf::RenderWindow &window)
 {
@@ -342,9 +364,11 @@ void Gameplay::drawButtons(sf::RenderWindow &window)
   window.draw(increaseInfantry);
   window.draw(increaseCavalry);
   window.draw(increaseSeige);
-  window.draw(attack);
   window.draw(endTurn_button);
   window.draw(menu);
+  ///NEW CHANGES///
+  if (canConquer)
+    window.draw(attack);
 }
 
 //Ending user turn 
@@ -460,7 +484,9 @@ void Gameplay::loadGame(){
 	player1.reInit(r->score,r->gold,r->military,r->siegeUnit,r->cavalryUnit,r->infantryUnit,r->population,r->land,r->conquerCount,r->color);
 	std::cout << "\n******************************************************" << r->Ai_color<<"********************************\n";
 	player2.reInit(r->Ai_score, r->Ai_gold, r->Ai_military, r->Ai_siegeUnit, r->Ai_cavalryUnit, r->Ai_infantryUnit, r->Ai_population, r->Ai_land, r->Ai_conquerCount, r->Ai_color);
-
+  
+  ///NEW CHANGES///
+  canConquer = true;
 
 	r->displayAll();
 }

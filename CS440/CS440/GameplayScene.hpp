@@ -22,10 +22,11 @@ private:
 
   bool userTurn;    //Currently user turn
   bool getMoney;    //can recieve money
+  bool canConquer;  //User can conquer
 
   //images
-  sf::Texture texture[14];  //Textures    /*0-Gold   1-Land  2-Population  3-infan   4-seige  5-cav  6-military */
-  sf::Sprite icons[7];      //Icons
+  sf::Texture texture[15];  //Textures    /*0-Gold   1-Land  2-Population  3-infan   4-seige  5-cav  6-military */
+  sf::Sprite icons[8];      //Icons
   sf::Text iconVal[7];      //Icon values as text
 
   sf::Sprite BgSprite;	    //the bakground Map
@@ -43,6 +44,7 @@ private:
   sf::Font font;
   sf::Text score;
   sf::Text time;
+  sf::Text totalTime;
 
   //Time based things
   sf::Clock roundTime;
