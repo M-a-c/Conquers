@@ -12,8 +12,8 @@ MainMenu::MainMenu(sf::RenderWindow &window,int &re_val)
   float height = window.getSize().y;
   selectedItem = 0;                           //Selected item index
 
-  ButtonManager::getInstance()->addButton(new Button(LoginScene, "Login", "images/b_login.png", sf::IntRect(0, 0, 180, 60), sf::Vector2f((width / 2) - (180 / 2), (height / 2))) );
-  ButtonManager::getInstance()->addButton(new Button(CreateScene, "Create", "images/b_createAcc.png", sf::IntRect(0, 0, 456, 60), sf::Vector2f((width / 2) - (456 / 2), (height / 2) + 70))) ;
+  ButtonManager::getInstance()->addButton(new Button(LoginScene, "Login", "images/b_login.png", sf::IntRect(0, 0, 180, 60), sf::Vector2f( (width / 2) - (180 / 2), (height / 2))) );
+  ButtonManager::getInstance()->addButton(new Button(CreateScene, "Create", "images/b_createAcc.png", sf::IntRect(0, 0, 280, 60), sf::Vector2f((width / 2) - (280 / 2), (height / 2) + 70))) ;
   ButtonManager::getInstance()->addButton(new Button(HelpScene, "Help", "images/b_help.png", sf::IntRect(0, 0, 180, 60), sf::Vector2f((width / 2) - (180 / 2), (height / 2) + 140))) ;
   ButtonManager::getInstance()->addButton(new Button(Exit, "Exit", "images/b_exit.png", sf::IntRect(0, 0, 180, 60), sf::Vector2f((width / 2) - (180 / 2), (height / 2) + 210))) ;
 

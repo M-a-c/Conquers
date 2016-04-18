@@ -177,21 +177,21 @@ void Gameplay::getImage(float width, float height)
   if (!texture[6].loadFromFile("images/mili_unit.png", sf::IntRect(0, 0, 48, 48)))
     imageFail_important("images/mili_unit.png");
 
-  if (!texture[7].loadFromFile("images/add_worker.png", sf::IntRect(0, 0, 153, 40)))
+  if (!texture[7].loadFromFile("images/add_worker.png", sf::IntRect(0, 0, 158, 40)))
     imageFail_important("images/add_worker.png");
   if (!texture[8].loadFromFile("images/add_infantry.png", sf::IntRect(0, 0, 158, 40)))
     imageFail_important("images/add_infantry.png");
-  if (!texture[9].loadFromFile("images/add_cavalry.png", sf::IntRect(0, 0, 154, 40)))
+  if (!texture[9].loadFromFile("images/add_cavalry.png", sf::IntRect(0, 0, 158, 40)))
     imageFail_important("images/add_cavalry.png");
-  if (!texture[10].loadFromFile("images/add_seige.png", sf::IntRect(0, 0, 125, 40)))
+  if (!texture[10].loadFromFile("images/add_seige.png", sf::IntRect(0, 0, 158, 40)))
     imageFail_important("images/add_seige.png");
-  if (!texture[11].loadFromFile("images/conquer.png", sf::IntRect(0, 0, 109, 40)))
+  if (!texture[11].loadFromFile("images/conquer.png", sf::IntRect(0, 0, 158, 40)))
     imageFail_important("images/conquer.png");
-  if (!texture[12].loadFromFile("images/end_turn.png", sf::IntRect(0, 0, 130, 40)))
+  if (!texture[12].loadFromFile("images/end_turn.png", sf::IntRect(0, 0, 158, 40)))
     imageFail_important("images/end_turn.png");
-  if (!texture[13].loadFromFile("images/save_exit.png", sf::IntRect(0, 0, 130, 40)))
+  if (!texture[13].loadFromFile("images/save_exit.png", sf::IntRect(0, 0, 158, 40)))
     imageFail_important("images/save_exit.png");
-  if (!texture[14].loadFromFile("images/player2.png", sf::IntRect(0, 0, 180, 60)))
+  if (!texture[14].loadFromFile("images/player2.png", sf::IntRect(0, 0, 200, 80)))
     imageFail_important("images/player2.png");
 
   icons[0].setTexture(texture[0]);
@@ -221,12 +221,12 @@ void Gameplay::getImage(float width, float height)
   icons[7].setPosition(sf::Vector2f(width/2-90,height/2-30));
 
   increasePopulation.setPosition(sf::Vector2f(10, height - 60));
-  increaseInfantry.setPosition(sf::Vector2f(183, height - 60));
-  increaseCavalry.setPosition(sf::Vector2f(371, height - 60));
-  increaseSeige.setPosition(sf::Vector2f(555, height - 60));
-  attack.setPosition(sf::Vector2f(710, height - 60));
-  endTurn_button.setPosition(sf::Vector2f(860, height - 60));
-  menu.setPosition(sf::Vector2f(1020, height - 60));
+  increaseInfantry.setPosition(sf::Vector2f(30+158, height - 60));
+  increaseCavalry.setPosition(sf::Vector2f(50+(2*158), height - 60));
+  increaseSeige.setPosition(sf::Vector2f(70 + (3 * 158), height - 60));
+  attack.setPosition(sf::Vector2f(100 + (4 * 158), height - 60));
+  endTurn_button.setPosition(sf::Vector2f(130 + (5 * 158), height - 60));
+  menu.setPosition(sf::Vector2f(160 + (6 * 158), height - 60));
   
 }
 

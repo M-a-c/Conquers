@@ -110,15 +110,15 @@ void Conquer::getImage(float width, float height)
 
   }
 
-  if (!texture[0].loadFromFile("images/A.png", sf::IntRect(0, 0, 51, 40)))
+  if (!texture[0].loadFromFile("images/A.png", sf::IntRect(0, 0, 100, 40)))
     imageFail_important("images/A.png");
-  if (!texture[1].loadFromFile("images/C.png", sf::IntRect(0, 0, 50, 40)))
+  if (!texture[1].loadFromFile("images/C.png", sf::IntRect(0, 0, 100, 40)))
     imageFail_important("images/C.png");
-  if (!texture[2].loadFromFile("images/B.png", sf::IntRect(0, 0, 51, 40)))
+  if (!texture[2].loadFromFile("images/B.png", sf::IntRect(0, 0, 100, 40)))
     imageFail_important("images/B.png");
-  if (!texture[3].loadFromFile("images/attack.png", sf::IntRect(0, 0, 100, 40)))
+  if (!texture[3].loadFromFile("images/attack.png", sf::IntRect(0, 0, 200, 200)))
     imageFail_important("images/attack.png");
-  if (!texture[4].loadFromFile("images/retreat.png", sf::IntRect(0, 0, 100, 40)))
+  if (!texture[4].loadFromFile("images/retreat.png", sf::IntRect(0, 0, 200, 200)))
     imageFail_important("images/retreat.png");
   if (!texture[5].loadFromFile("images/Choose.png", sf::IntRect(0, 0, 200, 60)))
     imageFail_important("images/Choose.png");
@@ -237,13 +237,13 @@ void Conquer::setScreen()
   {
     str_stats = getStats();
     stats.setString(str_stats);
-    label.setPosition(sf::Vector2f((x/2)-200, (y/2)+100));
-    attack.setPosition(sf::Vector2f(100, y-150));
-    retreat.setPosition(sf::Vector2f(x-300, y - 150));
+    label.setPosition(sf::Vector2f( (x/2)-100, (y/2)-30));
+    attack.setPosition(sf::Vector2f((x / 4)-100, y - 400));
+    retreat.setPosition(sf::Vector2f(((x / 4)*3) - 100, y - 400));
     stats.setPosition(sf::Vector2f(10, 20));
   }
   else if (part == 3){
-	  stats.setString("Wrong Answer, You loose 25 gold");
+	  stats.setString("Wrong Answer, You lose 25 gold");
 	  back.setPosition(sf::Vector2f(100, y - 150));
 	  wrong();
   }
@@ -295,7 +295,7 @@ void Conquer::drawButtons(sf::RenderWindow &window)
 //Returning stats
 string Conquer::getStats()
 {
-  if (numCorrect == 1)
+  /*if (numCorrect == 1)
   {
     return "Enemy Population: " + std::to_string((*p2).getPopluation()) + " Infantry:" + std::to_string((*p2).getInfantryUnits()) +
       " Cavalry:" + std::to_string((*p2).getCavalryUnits());
@@ -309,8 +309,14 @@ string Conquer::getStats()
   else
   {
     return "Enemy Population: " + std::to_string((*p2).getPopluation()) + " Infantry:" + std::to_string((*p2).getInfantryUnits());
-  }
+  }*/
 
+  return "Enemy Population: " + std::to_string((*p2).getPopluation()) + " Infantry:" + std::to_string((*p2).getInfantryUnits()) +
+    " Cavalry:" + std::to_string((*p2).getCavalryUnits()) +
+    " Siege:" + std::to_string((*p2).getSiegeUnits()) +
+    "\n\nYour Population: " + std::to_string((*p1).getPopluation()) + " Infantry:" + std::to_string((*p1).getInfantryUnits()) +
+    " Cavalry:" + std::to_string((*p1).getCavalryUnits()) +
+    " Siege:" + std::to_string((*p1).getSiegeUnits());
 
 }
 

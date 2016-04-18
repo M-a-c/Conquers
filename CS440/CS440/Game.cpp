@@ -10,13 +10,15 @@
 #include "GamePlayScene.hpp"
 #include "RunningData.hpp"
 #include "Questions.hpp"
+#include "Splash.hpp"
 
 int main()
 {
   sf::RenderWindow window(sf::VideoMode(1280, 720), "Conqueror");   //Creating the render window
-  window.setPosition(sf::Vector2i(300, 300));   //Set screen position
+  window.setPosition(sf::Vector2i(100, 100));   //Set screen position
   RunningData::getInstance()->reset();
   Questions::getInstance()->gameInit();
+  
   //Music
   sf::Music menu_music;                                 //Music object
   if (!menu_music.openFromFile("Sound/menu_music.ogg")) //Load music
@@ -29,11 +31,15 @@ int main()
     menu_music.setLoop(true);                           //Loop music
   }
 
-  int nextScene = -1;
+
+  int nextScene = 0;
+
+  Splash splash(window, nextScene);
+
   while (1)
   {
   
-    if (nextScene == 0 || nextScene==MainMenuScene || nextScene == -1)
+    if (nextScene == 0 || nextScene==MainMenuScene)
     {
       MainMenu mainMenu(window, nextScene);
       continue;

@@ -112,49 +112,49 @@ int GameOptions::update(sf::RenderWindow &window)
 void GameOptions::getImage(float width, float height)
 {
   //Getting prompt and color
-  if (!texture[0].loadFromFile("images/b_green.png", sf::IntRect(0, 0, 200, 100)))
+  if (!texture[0].loadFromFile("images/b_green.png", sf::IntRect(0, 0, 180, 60)))
     imageFail_important("images/b_green.png");
-  if (!texture[1].loadFromFile("images/b_red.png", sf::IntRect(0, 0, 200, 100)))
+  if (!texture[1].loadFromFile("images/b_red.png", sf::IntRect(0, 0, 180, 60)))
     imageFail_important("images/b_red.jpg");
-  if (!texture[2].loadFromFile("images/color.png", sf::IntRect(0, 0, 200, 100)))
+  if (!texture[2].loadFromFile("images/color.png", sf::IntRect(0, 0, 180, 60)))
     imageFail_important("images/color.png");
 
   //Getting prompt and era
-  if (!texture[3].loadFromFile("images/era.png", sf::IntRect(0, 0, 200, 100)))
+  if (!texture[3].loadFromFile("images/era.png", sf::IntRect(0, 0, 180, 60)))
     imageFail_important("images/era.png");
-  if (!texture[4].loadFromFile("images/b_ww2.png", sf::IntRect(0, 0, 200, 100)))
+  if (!texture[4].loadFromFile("images/b_ww2.png", sf::IntRect(0, 0, 180, 60)))
     imageFail_important("images/b_ww2.png");
-  if (!texture[5].loadFromFile("images/b_roman.png", sf::IntRect(0, 0, 220, 100)))
+  if (!texture[5].loadFromFile("images/b_roman.png", sf::IntRect(0, 0, 180, 60)))
     imageFail_important("images/b_roman.jpg");
 
   //Getting prompt and duration
-  if (!texture[6].loadFromFile("images/duration.png", sf::IntRect(0, 0, 280, 100)))
+  if (!texture[6].loadFromFile("images/duration.png", sf::IntRect(0, 0, 180, 60)))
     imageFail_important("images/duration.png");
-  if (!texture[7].loadFromFile("images/b_10min.png", sf::IntRect(0, 0, 200, 100)))
+  if (!texture[7].loadFromFile("images/b_10min.png", sf::IntRect(0, 0, 180, 60)))
     imageFail_important("images/b_10min.png");
-  if (!texture[8].loadFromFile("images/b_5min.png", sf::IntRect(0, 0, 200, 100)))
+  if (!texture[8].loadFromFile("images/b_5min.png", sf::IntRect(0, 0, 180, 60)))
     imageFail_important("images/b_5min.png");
-  if (!texture[9].loadFromFile("images/b_min.png", sf::IntRect(0, 0, 200, 100)))
+  if (!texture[9].loadFromFile("images/b_min.png", sf::IntRect(0, 0, 180, 60)))
     imageFail_important("images/b_min.jpg");
 
   //Getting prompt and time
-  if (!texture[10].loadFromFile("images/time.png", sf::IntRect(0, 0, 200, 100)))
+  if (!texture[10].loadFromFile("images/time.png", sf::IntRect(0, 0, 180, 60)))
     imageFail_important("images/time.png");
-  if (!texture[11].loadFromFile("images/b_hr.png", sf::IntRect(0, 0, 200, 100)))
+  if (!texture[11].loadFromFile("images/b_hr.png", sf::IntRect(0, 0, 180, 60)))
     imageFail_important("images/b_hr.png");
-  if (!texture[12].loadFromFile("images/b_12hr.png", sf::IntRect(0, 0, 200, 100)))
+  if (!texture[12].loadFromFile("images/b_12hr.png", sf::IntRect(0, 0, 180, 60)))
     imageFail_important("images/b_12hr.png");
-  if (!texture[13].loadFromFile("images/b_24hr.png", sf::IntRect(0, 0, 200, 100)))
+  if (!texture[13].loadFromFile("images/b_24hr.png", sf::IntRect(0, 0, 180, 60)))
     imageFail_important("images/b_24hr.jpg");
 
   //Getting prompt and unit
-  if (!texture[14].loadFromFile("images/unit.png", sf::IntRect(0, 0, 200, 100)))
+  if (!texture[14].loadFromFile("images/unit.png", sf::IntRect(0, 0, 180, 60)))
     imageFail_important("images/unit.png");
-  if (!texture[15].loadFromFile("images/b_100.png", sf::IntRect(0, 0, 200, 100)))
+  if (!texture[15].loadFromFile("images/b_100.png", sf::IntRect(0, 0, 180, 60)))
     imageFail_important("images/b_100.png");
-  if (!texture[16].loadFromFile("images/b_50.png", sf::IntRect(0, 0, 200, 100)))
+  if (!texture[16].loadFromFile("images/b_50.png", sf::IntRect(0, 0, 180, 60)))
     imageFail_important("images/b_50.png");
-  if (!texture[17].loadFromFile("images/b_25.png", sf::IntRect(0, 0, 200, 100)))
+  if (!texture[17].loadFromFile("images/b_25.png", sf::IntRect(0, 0, 180, 60)))
     imageFail_important("images/b_25.jpg");
   
   //Getting prompt and other
@@ -162,7 +162,7 @@ void GameOptions::getImage(float width, float height)
     imageFail_important("images/b_help.png");
   if (!texture[19].loadFromFile("images/b_back.png", sf::IntRect(0, 0, 180, 60)))
     imageFail_important("images/b_exit.png");
-  if (!texture[20].loadFromFile("images/b_sword.png", sf::IntRect(0, 0, 200, 100)))
+  if (!texture[20].loadFromFile("images/b_sword.png", sf::IntRect(0, 0, 256, 256)))
     imageFail_important("images/b_login.png");
  
 
@@ -180,54 +180,58 @@ void GameOptions::getImage(float width, float height)
   prompt[2].setTexture(texture[6]);
   prompt[3].setTexture(texture[10]);
   prompt[4].setTexture(texture[14]);
-  prompt[0].setPosition(sf::Vector2f((width / 10) - (200 / 2), (height / 6) ));
-  prompt[1].setPosition(sf::Vector2f((width / 10) - (200 / 2), (height / 6)*2 ));
-  prompt[2].setPosition(sf::Vector2f((width / 10) - (280 / 2)+10, (height / 6)*3 ));
-  prompt[3].setPosition(sf::Vector2f((width / 10) - (200 / 2), (height / 6)*4 ));
-  prompt[4].setPosition(sf::Vector2f((width / 10) - (200 / 2), (height / 6)*5 ));
+
+  prompt[0].setPosition(sf::Vector2f((width / 10) - (180 / 2), (height / 6) ));
+  prompt[1].setPosition(sf::Vector2f((width / 10) - (180 / 2), (height / 6) * 2));
+  prompt[2].setPosition(sf::Vector2f((width / 10) - (180 / 2), (height / 6) * 3));
+  prompt[3].setPosition(sf::Vector2f((width / 10) - (180 / 2), (height / 6) * 4));
+  prompt[4].setPosition(sf::Vector2f((width / 10) - (180 / 2), (height / 6) * 5));
 
   //Color
   button[0].setTexture(texture[0]);
   button[1].setTexture(texture[1]);
-  button[0].setPosition(sf::Vector2f((width / 10)*3 - (200 / 2), (height / 6)));
-  button[1].setPosition(sf::Vector2f((width / 10)*5 - (200 / 2), (height / 6)));
+  button[0].setPosition(sf::Vector2f((width / 10) * 3 - (180 / 2), (height / 6)));
+  button[1].setPosition(sf::Vector2f((width / 10) * 5 - (180 / 2), (height / 6)));
 
   //Era
   button[2].setTexture(texture[4]);
   button[3].setTexture(texture[5]);
-  button[2].setPosition(sf::Vector2f((width / 10)*3 - (200 / 2), (height / 6) * 2));
-  button[3].setPosition(sf::Vector2f((width / 10)*5 - (200 / 2), (height / 6) * 2));
+  button[2].setPosition(sf::Vector2f((width / 10) * 3 - (180 / 2), (height / 6) * 2));
+  button[3].setPosition(sf::Vector2f((width / 10) * 5 - (180 / 2), (height / 6) * 2));
 
   //Time
   button[4].setTexture(texture[11]);
   button[5].setTexture(texture[12]);
   button[6].setTexture(texture[13]);
-  button[4].setPosition(sf::Vector2f((width / 10) * 3 - (200 / 2), (height / 6) * 4));
-  button[5].setPosition(sf::Vector2f((width / 10) * 5 - (200 / 2), (height / 6) * 4));
-  button[6].setPosition(sf::Vector2f((width / 10) * 7 - (200 / 2), (height / 6) * 4));
+  button[4].setPosition(sf::Vector2f((width / 10) * 3 - (180 / 2), (height / 6) * 4));
+  button[5].setPosition(sf::Vector2f((width / 10) * 5 - (180 / 2), (height / 6) * 4));
+  button[6].setPosition(sf::Vector2f((width / 10) * 7 - (180 / 2), (height / 6) * 4));
 
   //Duration
   button[7].setTexture(texture[7]);
   button[8].setTexture(texture[8]);
   button[9].setTexture(texture[9]);
-  button[7].setPosition(sf::Vector2f((width / 10) * 7 - (200 / 2), (height / 6) * 3));
-  button[8].setPosition(sf::Vector2f((width / 10) * 5 - (200 / 2), (height / 6) * 3));
-  button[9].setPosition(sf::Vector2f((width / 10) * 3 - (200 / 2), (height / 6) * 3));
+  button[7].setPosition(sf::Vector2f((width / 10) * 7 - (180 / 2), (height / 6) * 3));
+  button[8].setPosition(sf::Vector2f((width / 10) * 5 - (180 / 2), (height / 6) * 3));
+  button[9].setPosition(sf::Vector2f((width / 10) * 3 - (180 / 2), (height / 6) * 3));
 
   //Unit
   button[10].setTexture(texture[15]);
   button[11].setTexture(texture[16]);
   button[12].setTexture(texture[17]);
-  button[10].setPosition(sf::Vector2f((width / 10) * 7 - (200 / 2), (height / 6) * 5));
-  button[11].setPosition(sf::Vector2f((width / 10) * 5 - (200 / 2), (height / 6) * 5));
-  button[12].setPosition(sf::Vector2f((width / 10) * 3 - (200 / 2), (height / 6) * 5));
+  button[10].setPosition(sf::Vector2f((width / 10) * 7 - (180 / 2), (height / 6) * 5));
+  button[11].setPosition(sf::Vector2f((width / 10) * 5 - (180 / 2), (height / 6) * 5));
+  button[12].setPosition(sf::Vector2f((width / 10) * 3 - (180 / 2), (height / 6) * 5));
 
   //swords
   for (int i = 0; i < 5; i++)
   {
     sword[i].setTexture(texture[20]);
     sword[i].setPosition(sf::Vector2f(width + 100, height + 100) );
+    sword[i].setScale(.50, .50);
   }
+
+
 }
 
 
@@ -254,12 +258,13 @@ void GameOptions::buttonSelectionCheck()
   {
     selectedColor = 1;
     sword[0].setPosition(button[0].getPosition());
+    sword[0].move(26, -34);
   }
   else if (button[1].mouseClicked() == true)
   {
     selectedColor = 2;
     sword[0].setPosition(button[1].getPosition());
-
+    sword[0].move(26, -34);
   }
 
   //Era Selection
@@ -267,11 +272,15 @@ void GameOptions::buttonSelectionCheck()
   {
     selectedEra = 1;
     sword[1].setPosition(button[2].getPosition());
+    sword[1].move(26, -34);
+
   }
   else if (button[3].mouseClicked() == true)
   {
     selectedEra = 2;
     sword[1].setPosition(button[3].getPosition());
+    sword[1].move(26, -34);
+
   }
 
   //Time Selection
@@ -279,16 +288,22 @@ void GameOptions::buttonSelectionCheck()
   {
     selectedTime = 1;
     sword[2].setPosition(button[4].getPosition());
+    sword[2].move(26, -34);
+
   }
   else if (button[5].mouseClicked() == true)
   {
     selectedTime = 2;
     sword[2].setPosition(button[5].getPosition());
+    sword[2].move(26, -34);
+
   }
   else if (button[6].mouseClicked() == true)
   {
     selectedTime = 3;
     sword[2].setPosition(button[6].getPosition());
+    sword[2].move(26, -34);
+
   }
 
   //Duration Selection
@@ -296,16 +311,22 @@ void GameOptions::buttonSelectionCheck()
   {
 	  selectedDur = 3;
 	  sword[3].setPosition(button[7].getPosition());
+    sword[3].move(26, -34);
+
   }
   else if (button[8].mouseClicked() == true)
   {
 	  selectedDur = 2;
 	  sword[3].setPosition(button[8].getPosition());
+    sword[3].move(26, -34);
+
   }
   else if (button[9].mouseClicked() == true)
   {
 	  selectedDur = 1;
 	  sword[3].setPosition(button[9].getPosition());
+    sword[3].move(26, -34);
+
   }
 
   //Unit Selection
@@ -313,16 +334,22 @@ void GameOptions::buttonSelectionCheck()
   {
     selectedUnits = 3;
     sword[4].setPosition(button[10].getPosition());
+    sword[4].move(26, -34);
+
   }
   else if (button[11].mouseClicked() == true)
   {
     selectedUnits = 2;
     sword[4].setPosition(button[11].getPosition());
+    sword[4].move(26, -34);
+
   }
   else if (button[12].mouseClicked() == true)
   {
     selectedUnits = 1;
     sword[4].setPosition(button[12].getPosition());
+    sword[4].move(26, -34);
+
   }
 
 

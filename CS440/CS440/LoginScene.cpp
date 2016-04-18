@@ -170,13 +170,13 @@ void Login::getImage(float width, float height)
     userName_text.setFont(font);
     userName_text.setColor(sf::Color::White);
     userName_text.setString("USERNAME:");
-    userName_text.setPosition(50, 50);
+    userName_text.setPosition(width/4, (height/4));
 
     //password label
     password_text.setFont(font);
     password_text.setColor(sf::Color::White);
     password_text.setString("PASSWORD:");
-    password_text.setPosition(50, 100);
+    password_text.setPosition(width / 4, (height / 4) *2);
   }
 
 

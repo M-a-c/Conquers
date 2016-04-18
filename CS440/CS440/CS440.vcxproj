@@ -98,6 +98,7 @@
     <ClCompile Include="Questions.cpp" />
     <ClCompile Include="RunningData.cpp" />
     <ClCompile Include="Scenes.cpp" />
+    <ClCompile Include="Splash.cpp" />
     <ClCompile Include="StringInput.cpp" />
     <ClCompile Include="StringManager.cpp" />
   </ItemGroup>
@@ -120,6 +121,7 @@
     <ClInclude Include="Player.hpp" />
     <ClInclude Include="Questions.hpp" />
     <ClInclude Include="RunningData.hpp" />
+    <ClInclude Include="Splash.hpp" />
     <ClInclude Include="StringInput.hpp" />
     <ClInclude Include="StringManager.hpp" />
   </ItemGroup>

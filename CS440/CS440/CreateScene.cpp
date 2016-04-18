@@ -153,9 +153,9 @@ void Create::getImage(float width, float height)
   {
     //username lable
     userName_text.setFont(font);
-    userName_text.setColor(sf::Color::Red);
+    userName_text.setColor(sf::Color::White);
     userName_text.setString("Enter USERNAME:");
-    userName_text.setPosition(50, 50);
+    userName_text.setPosition(width / 4, (height / 4));
 
     //Message::No draw yet
     message.setFont(font);
@@ -165,9 +165,9 @@ void Create::getImage(float width, float height)
 
     //password label
     password_text.setFont(font);
-	password_text.setColor(sf::Color::Red);
+    password_text.setColor(sf::Color::White);
     password_text.setString("Enter PASSWORD:");
-    password_text.setPosition(50, 100);
+    password_text.setPosition(width / 4, (height / 4) * 2);
   }
 
 
@@ -180,12 +180,12 @@ void Create::getImage(float width, float height)
 
   //Create Create Button
   button[0].setTexture(texture[0]);
-  button[0].setPosition(sf::Vector2f((width / 4) - (180 / 2), (height /8)*5 ));
+  button[0].setPosition(sf::Vector2f((width / 4) - (180 / 2), (height / 8) * 6));
   button[0].setScale(1.15f, 1.15f);
 
   //Create Back Button
   button[1].setTexture(texture[1]);
-  button[1].setPosition(sf::Vector2f(((width / 4) * 3) - (180 / 2), (height /8)*5 ));
+  button[1].setPosition(sf::Vector2f((width / 4)*2 - (180 / 2), (height / 8) * 6));
 
 }
 
